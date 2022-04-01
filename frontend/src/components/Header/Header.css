@@ -16,14 +16,15 @@
 .logo {
     display: flex;
     align-items: center;
+    align-items: flex-end;
 }
 
 .logo__text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .logo__img {
-    max-width: 3.3rem;
+    max-width: 3rem;
 }

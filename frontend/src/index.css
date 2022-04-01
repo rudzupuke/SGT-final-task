@@ -8,3 +8,11 @@ body {
 }
 
 
+:root {
+  --dark-text: #000000;
+  --white: #ffffff;
+  --accents: #8C3D20;
+  --accents-lighter: #C7B2A6;
+  --background-1: #E5E5E5; 
+  --background-2: #C7B2A6; 
+}
