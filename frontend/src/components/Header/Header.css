@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+}
+
+.logo__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logo__img {
+    max-width: 3rem;
+}
