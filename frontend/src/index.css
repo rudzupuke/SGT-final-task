@@ -2,17 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
-body {
-  margin: 0;
+body, html {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
 
-:root {
-  --dark-text: #000000;
-  --white: #ffffff;
-  --accents: #8C3D20;
-  --accents-lighter: #C7B2A6;
-  --background-1: #E5E5E5; 
-  --background-2: #C7B2A6; 
-}

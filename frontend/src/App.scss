@@ -1,0 +1,18 @@
+@use "scss/shared.scss" as shared;
+
+.app {
+  text-align: center;
+ 
+}
+
+.button {
+  background-color: shared.$primary;
+  padding: 12px 25px;
+  border: none; 
+  border-radius: 10px;
+  color: shared.$white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
