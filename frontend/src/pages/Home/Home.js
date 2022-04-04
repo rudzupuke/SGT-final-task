@@ -23,7 +23,6 @@ const Home = () => {
 				<button className="button--primary" onClick={handleClick}>
 					{authToken ? "Sign Out" : "Create Account"}
 				</button>
-
 				{showModal && <LoginModal setShowModal={setShowModal} />}
 			</div>
 		</div>

@@ -2,13 +2,13 @@
 
 // shared color variables
 
-$dark-text: #26150F;
-$white: #ffffff;
-$background-color: #E5E5E5; 
-$primary: #8C3D20;
-$primary-brigt: #f1770c;
-$primary-light: #C7B2A6;
-$primary-light-2: #C7B2A6; 
+$dark-text: rgb(38, 21, 15);
+$white: rgb(255, 255, 255);
+$background-color: rgb(229, 229, 229); 
+$primary: rgb(140, 61, 32);
+$primary-brigt: rgb(241, 119, 12);
+$primary-light: rgb(199, 178, 166);
+$primary-light-2: rgb(199, 178, 166); 
 
 // reused elements
 
@@ -32,4 +32,9 @@ $primary-light-2: #C7B2A6;
       background-color: $primary-light;
       cursor: not-allowed;
   }
+  }
+
+  .heading--main {
+    color: $white; 
+    font-size: 3rem;
   }
