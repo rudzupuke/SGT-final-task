@@ -27,4 +27,9 @@ $primary-light-2: #C7B2A6;
     &:active {
       background-color: $primary-brigt;
     }
+
+    &:disabled {
+      background-color: $primary-light;
+      cursor: not-allowed;
+  }
   }

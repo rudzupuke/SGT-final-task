@@ -1,0 +1,61 @@
+@use "../../App.scss" as shared;
+
+.login-modal {
+    display: grid;
+    justify-items: center;
+    position: absolute;
+    padding: 30px;
+    max-width: 360px;
+    place-self: center;
+    background-color: shared.$background-color;
+    border-radius: 10px;
+    color: shared.$dark-text;
+    text-align: center;
+
+    .button--close {
+        display: block;
+        justify-self: end;
+        align-self: start;
+        margin-bottom: 5px;
+        background-color: shared.$primary;
+        border: none; 
+        border-radius: 4px;
+        color: shared.$white;
+        cursor: pointer;
+    }
+
+    h2 {
+        margin: 10px 0; 
+    }
+
+    p {
+        margin: 5px 0 20px;
+    }
+
+    form {
+
+    }
+
+    input {
+        display: block;
+    }
+}
+
+.login-modal__form {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 270px;
+
+    input {
+        padding: 8px;
+        border: none; 
+        border-radius: 10px;
+        display: block;
+    }
+
+    .button--primary {
+        margin: 10px 15px 0 15px;
+    }
+}
