@@ -6,20 +6,25 @@ $dark-text: #26150F;
 $white: #ffffff;
 $background-color: #E5E5E5; 
 $primary: #8C3D20;
-$primary-brigt: #D98943;
+$primary-brigt: #f1770c;
 $primary-light: #C7B2A6;
 $primary-light-2: #C7B2A6; 
 
 // reused elements
 
-.button {
+.button--primary {
     background-color: $primary;
     padding: 12px 25px;
     border: none; 
     border-radius: 10px;
     color: $white;
+    cursor: pointer;
   
     &:hover {
-      opacity: 0.9;
+      background-color: $primary-brigt;
+    }
+
+    &:active {
+      background-color: $primary-brigt;
     }
   }

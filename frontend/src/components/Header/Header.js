@@ -1,9 +1,9 @@
-import logo from '../../assets/logo.svg';
-import './Header.scss';
+import logo from "../../assets/logo_white.svg";
+import "./Header.scss";
 
-const Header = () => {
+const Header = ({ authToken, minimal }) => {
 	return (
-		<div className="header">
+		<header className="header">
 			<div className="logo">
 				<img src={logo} className="logo__img" alt="logo"></img>
 				<span className="logo__text">dinder</span>
@@ -13,10 +13,14 @@ const Header = () => {
 					<li className="nav__item">Home</li>
 					<li className="nav__item">About</li>
 					<li className="nav__item">Dashboard</li>
+					{!authToken && (
+						<li>
+							<button className="button--primary">Log in</button>
+						</li>
+					)}
 				</ul>
-				<button className="button">Log in</button>
 			</nav>
-		</div>
+		</header>
 	);
 };
 
