@@ -1,15 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import Header from "../../components/Header/Header";
 import DashboardCard from "../../components/Dashboard/DashboardCard";
 import "./DashBoard.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 
-const DashBoard = () => {
-  const [user, setUser] = useState(null);
-  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+const DashBoard = ({ user, setUser }) => {
+  console.log("render");
+  const [isLoading, setIsLoading] = useState(true);
+  const [cookies] = useCookies(["user"]);
 
   const userId = cookies.UserId;
+  const authToken = cookies.AuthToken;
   //   console.log(userId);
 
   const getUser = async () => {
@@ -18,6 +20,7 @@ const DashBoard = () => {
         params: { userId },
       });
       setUser(response.data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -25,15 +28,18 @@ const DashBoard = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
-
-  console.log(user);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="dashboard">
-      <Header />
-      {user && <DashboardCard user={user} />}
-    </div>
+    <>
+      {isLoading && <div className="loading">Loading..</div>}
+      {!isLoading && (
+        <div className="dashboard">
+          <Header authToken={authToken} user={user} />
+          {user && <DashboardCard user={user} />}
+        </div>
+      )}
+    </>
   );
 };
 
