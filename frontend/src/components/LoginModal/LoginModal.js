@@ -1,12 +1,15 @@
 import "./LoginModal.scss";
 import { useState } from "react";
 import axios from "axios";
-import { useCookie } from "react-cookie";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ setShowModal }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [errors, setError] = useState(null);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const navigate = useNavigate();
 
   console.log(email, password);
 
@@ -14,8 +17,24 @@ const LoginModal = ({ setShowModal }) => {
     setShowModal(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/login", {
+        email,
+        password,
+      });
+
+      setCookie("Email", response.data.email);
+      setCookie("UserId", response.data.userId);
+      setCookie("AuthToken", response.data.token);
+
+      const success = response.status === 201;
+
+      if (success) navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -45,7 +64,7 @@ const LoginModal = ({ setShowModal }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="button--primary">LOG IN</button>
+        <input type="submit" value="Log In" className="button--primary" />
         <p className="error-message">{errors}</p>
       </form>
     </div>
