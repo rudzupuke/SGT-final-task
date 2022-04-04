@@ -13,8 +13,7 @@ const Home = () => {
 	return (
 		<div className="home">
 			<Header
-				authToken={authToken}
-				minimal={false}
+				whiteText={true}
 				setShowModal={setShowModal}
 				showModal={showModal}
 			/>

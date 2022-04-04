@@ -15,11 +15,12 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-}
 
-.home__container {
-    align-self: center;
-    display: grid;
-    place-items: center;
-    color: shared.$white;
+
+    &__container {
+        align-self: center;
+        display: grid;
+        place-items: center;
+        color: shared.$white;
+    }
 }

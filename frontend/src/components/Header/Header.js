@@ -1,12 +1,16 @@
 import logo from "../../assets/logo_white.svg";
 import "./Header.scss";
 
-const Header = ({ authToken, minimal, setShowModal, showModal }) => {
+const Header = ({ whiteText, setShowModal, showModal, setIsNewUser }) => {
 	const handleClick = () => {
 		setShowModal(true);
+		setIsNewUser(false);
 	};
+
+	const authToken = false;
+
 	return (
-		<header className="header">
+		<header className={whiteText ? "header white-nav" : "header"}>
 			<div className="logo">
 				<img src={logo} className="logo__img" alt="logo"></img>
 				<span className="logo__text">dinder</span>
