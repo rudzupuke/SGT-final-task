@@ -23,7 +23,7 @@ const Header = ({ whiteText, setShowModal, showModal, setIsNewUser }) => {
 					{!authToken && (
 						<li>
 							<button
-								className="button--primary"
+								className="button--primary nav__button"
 								onClick={handleClick}
 								disabled={showModal}
 							>
