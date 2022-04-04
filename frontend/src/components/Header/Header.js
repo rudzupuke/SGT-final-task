@@ -1,7 +1,10 @@
 import logo from "../../assets/logo_white.svg";
 import "./Header.scss";
 
-const Header = ({ authToken, minimal }) => {
+const Header = ({ authToken, minimal, setShowModal, showModal }) => {
+	const handleClick = () => {
+		setShowModal(true);
+	};
 	return (
 		<header className="header">
 			<div className="logo">
@@ -15,7 +18,13 @@ const Header = ({ authToken, minimal }) => {
 					<li className="nav__item">Dashboard</li>
 					{!authToken && (
 						<li>
-							<button className="button--primary">Log in</button>
+							<button
+								className="button--primary"
+								onClick={handleClick}
+								disabled={showModal}
+							>
+								Log in
+							</button>
 						</li>
 					)}
 				</ul>
