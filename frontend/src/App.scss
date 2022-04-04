@@ -1,18 +1,25 @@
-@use "scss/shared.scss" as shared;
+//@use "scss/shared.scss" as shared;
 
-.app {
-  text-align: center;
- 
-}
+// shared color variables
+
+$dark-text: #26150F;
+$white: #ffffff;
+$background-color: #E5E5E5; 
+$primary: #8C3D20;
+$primary-brigt: #D98943;
+$primary-light: #C7B2A6;
+$primary-light-2: #C7B2A6; 
+
+// reused elements
 
 .button {
-  background-color: shared.$primary;
-  padding: 12px 25px;
-  border: none; 
-  border-radius: 10px;
-  color: shared.$white;
-
-  &:hover {
-    opacity: 0.9;
+    background-color: $primary;
+    padding: 12px 25px;
+    border: none; 
+    border-radius: 10px;
+    color: $white;
+  
+    &:hover {
+      opacity: 0.9;
+    }
   }
-}
