@@ -96,7 +96,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/user", async (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.query.userId;
 
   try {
     await client.connect();
