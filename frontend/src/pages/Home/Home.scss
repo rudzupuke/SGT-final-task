@@ -1,12 +1,19 @@
-@use "../../scss/shared.scss" as shared;
+@use "../../App.scss" as shared;
 
 .home {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    // width: 100vw;
+    // position: fixed;
     display: grid;
     grid-template-rows: auto 1fr;
-    background: url(../../assets/alvan-nee-T-0EW-SEbsE-unsplash.jpg);
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.65) 100%,
+    );
+    background-image: url(../../assets/alvan-nee-T-0EW-SEbsE-unsplash.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center center;
