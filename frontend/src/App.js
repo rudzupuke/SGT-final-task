@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import data from './dummyData';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
@@ -10,7 +10,7 @@ function App() {
 	console.log(data);
 	return (
 		<div className="app">
-			<Header />
+			{/* <Header /> */}
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />

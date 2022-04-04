@@ -1,0 +1,48 @@
+@use "../../scss/shared.scss" as shared;
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.2rem;
+
+    .nav__list {
+        display: flex;
+        list-style: none;
+        gap: 10px;
+    }
+
+    button {
+        margin-left: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+
+    .logo__text {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: shared.$dark-text;
+    }
+    
+    .logo__img {
+        max-width: 3rem;
+    }
+
+}
+
