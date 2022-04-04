@@ -4,6 +4,7 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
+// const { default: data } = require("../../frontend/src/dummyData");
 const uri =
   "mongodb+srv://admin:KC8NbLWsvK2J5Re@cluster0.z2sii.mongodb.net/Cluster0?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
@@ -91,6 +92,22 @@ router.post("/login", async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/user", async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const users = database.collection("users");
+
+    const query = { user_id: userId };
+    const user = await users.findOne(query);
+    res.send(user);
+  } finally {
+    await client.close();
   }
 });
 
