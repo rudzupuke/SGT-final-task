@@ -33,7 +33,7 @@ const Register = () => {
 						value={""}
 						onChange={handleChange}
 					/>
-					<label htmlFor="breed">Dog's name</label>
+					<label htmlFor="breed">Breed</label>
 					<input
 						type="text"
 						placeholder="Dog's breed"
@@ -43,16 +43,21 @@ const Register = () => {
 						value={""}
 						onChange={handleChange}
 					/>
-					<label htmlFor="name">Dog's name</label>
+					<label htmlFor="image">Photo url</label>
 					<input
-						type="text"
-						placeholder="Dog's name"
-						name="name"
-						id="name"
-						required
+						type="url"
+						placeholder="Photo url"
+						name="image"
+						id="image"
 						value={""}
 						onChange={handleChange}
 					/>
+					<textarea
+						name="bio"
+						id="bio"
+						placeholder="Tell about the dog..."
+						maxlength="200"
+					></textarea>
 				</form>
 			</main>
 		</>
