@@ -116,8 +116,51 @@ router.get("/users", async (req, res) => {
     const database = client.db("app-data");
     const users = database.collection("users");
 
-    const returnedUsers = await users.find().toArray();
+    const returnedUsers = await users
+      .find({})
+      .project({
+        hashed_password: 0,
+        email: 0,
+      }) /* excludes hashed_password and email from returned data */
+      .toArray();
     res.send(returnedUsers);
+  } finally {
+    await client.close();
+  }
+});
+
+router.post("/addbuddy", async (req, res) => {
+  // get the id of the user who's adding the buddy and the id of the buddy who's being added:
+  const { userId, buddyUserId } = req.body;
+  console.log(userId, buddyUserId);
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const users = database.collection("users");
+
+    const queryOne = { user_id: userId };
+    const queryTwo = { user_id: buddyUserId };
+
+    const updateBuddiesArrayForUserId = {
+      $push: { buddies: { user_id: buddyUserId } },
+    };
+
+    const updateBuddiesArrayForBuddyUserId = {
+      $push: { buddies: { user_id: userId } },
+    };
+
+    const userOne = await users.updateOne(
+      queryOne,
+      updateBuddiesArrayForUserId
+    );
+    const userTwo = await users.updateOne(
+      queryTwo,
+      updateBuddiesArrayForBuddyUserId
+    );
+    res.send({ userOne, userTwo });
+  } catch (error) {
+    console.log(error);
   } finally {
     await client.close();
   }
