@@ -24,6 +24,36 @@ const Register = () => {
 			<main className="register">
 				<h2>Create account</h2>
 				<form onSubmit={handleSubmit} className="registration-form">
+					<label htmlFor="email">Dog's name</label>
+					<input
+						type="email"
+						placeholder="Email"
+						name="email"
+						id="email"
+						required
+						value={""}
+						onChange={handleChange}
+					/>
+					<label htmlFor="password">Dog's name</label>
+					<input
+						type="text"
+						placeholder="Password"
+						name="password"
+						id="password"
+						required
+						value={""}
+						onChange={handleChange}
+					/>
+					<label htmlFor="password-confirm">Dog's name</label>
+					<input
+						type="password"
+						placeholder="Confirm password"
+						name="password-confirm"
+						id="password-confirm"
+						required
+						value={""}
+						onChange={handleChange}
+					/>
 					<label htmlFor="name">Dog's name</label>
 					<input
 						type="text"
@@ -53,11 +83,21 @@ const Register = () => {
 						value={""}
 						onChange={handleChange}
 					/>
+					<fieldset>
+					<label htmlFor="age">Dog's age</label>
+					<input
+						type="radio"
+						name="age"
+						id="agr"
+						value={""}
+						onChange={handleChange}
+					/>
+					</fieldset>
 					<textarea
 						name="bio"
 						id="bio"
 						placeholder="Tell about the dog..."
-						maxlength="200"
+						maxLength="200"
 					></textarea>
 				</form>
 			</main>
