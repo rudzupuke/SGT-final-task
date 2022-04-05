@@ -35,7 +35,7 @@ const Header = ({
             <li className="nav__item">
               <Link to="/">Home</Link>
             </li>
-            <li className="nav__item">About</li>
+            {/* <li className="nav__item">About</li> */}
             <li className="nav__item">
               {authToken && <Link to="/dashboard">Dashboard</Link>}
             </li>
