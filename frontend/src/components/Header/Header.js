@@ -1,6 +1,6 @@
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo_white.svg";
+import logo from "../../assets/logo.svg";
 import "./Header.scss";
 
 const Header = ({
@@ -35,7 +35,7 @@ const Header = ({
             <li className="nav__item">
               <Link to="/">Home</Link>
             </li>
-            <li className="nav__item">About</li>
+            {/* <li className="nav__item">About</li> */}
             <li className="nav__item">
               {authToken && <Link to="/dashboard">Dashboard</Link>}
             </li>
@@ -54,7 +54,7 @@ const Header = ({
               <>
                 <li>Welcome back, {user && user.name}!</li>
                 <li>
-                  <button className="button--primary" onClick={logout}>
+                  <button className="button--primary nav__button" onClick={logout}>
                     Log Out
                   </button>
                 </li>

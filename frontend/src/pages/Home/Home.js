@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./Home.scss";
 import Header from "../../components/Header/Header";
 import LoginModal from "../../components/LoginModal/LoginModal";
@@ -26,7 +28,7 @@ const Home = ({ isOnHomePage, user }) => {
       <div className="home__container">
         <h1 className="heading--main">Find your dog a buddy!</h1>
         <button className="button--primary" onClick={handleClick}>
-          {authToken ? "Sign Out" : "Create Account"}
+          {authToken ? <Link to="/dashboard">My dashboard</Link> : <Link to="/register">Create account</Link>}
         </button>
         {showModal && <LoginModal setShowModal={setShowModal} />}
       </div>
