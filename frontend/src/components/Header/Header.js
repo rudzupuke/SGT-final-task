@@ -5,7 +5,6 @@ import "./Header.scss";
 
 const Header = ({
   authToken,
-  minimal,
   setShowModal,
   showModal,
   user,
@@ -43,7 +42,7 @@ const Header = ({
             {!authToken && (
               <li>
                 <button
-                  className="button--primary"
+                  className="button--primary nav__button"
                   onClick={handleClick}
                   disabled={showModal}
                 >
