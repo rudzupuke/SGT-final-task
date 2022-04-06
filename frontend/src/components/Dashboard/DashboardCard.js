@@ -5,7 +5,7 @@ const DashboardCard = ({ user }) => {
       <div className="dashboard-card">
         <h1 className="dashboard-card__heading">{user.name}'s profile</h1>
         <div className="dashboard-card__body">
-          <img className="dashboard-card__img" src={user.picture}></img>
+          <img className="dashboard-card__img" alt="user.name" src={user.picture}></img>
           <div className="dashboard-card__info">
             <h2>
               <span className="bold">{user.name}</span>, {user.breed}
