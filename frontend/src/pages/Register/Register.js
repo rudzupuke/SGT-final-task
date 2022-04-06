@@ -22,9 +22,15 @@ const Register = () => {
 		bio: "",
 		buddies: [],
 	});
+	const [errors, setError] = useState(null);
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if(formData.password !== formData.passwordRepeat){
+			setError("The passwords don't match")
+			return;
+		}
 		try {
 			const response = await axios.post("http://localhost:8000/signup", {
 				formData,
@@ -194,6 +200,7 @@ const Register = () => {
 						value={formData.bio}
 						onChange={handleChange}
 					></textarea>
+					<p className="error-message">{errors}</p>
 					<button className="button--primary registration-form__btn">
 						Create account
 					</button>
