@@ -7,7 +7,7 @@ import "./Register.scss";
 import Header from "../../components/Header/Header";
 
 const Register = () => {
-	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+	const [cookies, setCookie] = useCookies(["user"]);
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		user_id: cookies.UserId,
@@ -24,11 +24,10 @@ const Register = () => {
 	});
 	const [errors, setError] = useState(null);
 
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if(formData.password !== formData.passwordRepeat){
-			setError("The passwords don't match")
+		if (formData.password !== formData.passwordRepeat) {
+			setError("The passwords don't match");
 			return;
 		}
 		try {
