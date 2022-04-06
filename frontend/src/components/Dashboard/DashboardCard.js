@@ -18,6 +18,7 @@ const DashboardCard = ({ user }) => {
 							{user.breed}
 						</h2>
 						<h3>{user.age}</h3>
+						{/* if the  character is not an array but a string simply renders a p tag with that string*/}
 						<ul className="character">
 							{Array.isArray(user.character) ? (
 								user.character.map((x) => {
