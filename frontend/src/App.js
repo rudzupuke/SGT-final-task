@@ -1,5 +1,5 @@
 import "./App.scss";
-import data from "./dummyData";
+// import data from "./dummyData";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import DashBoard from "./pages/DashBoard/DashBoard";
@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  console.log(data);
   const [isOnHomePage, setIsOnHomePage] = useState(true);
   const [user, setUser] = useState(null);
 

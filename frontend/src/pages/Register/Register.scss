@@ -2,7 +2,8 @@
 
 .register {
 	display: grid;
-    justify-items: center;
+	margin: 20px;
+	justify-items: center;
 }
 
 .registration-form {
@@ -14,13 +15,26 @@
 	max-width: 600px;
 	background-color: shared.$primary-light;
 
-	input, textarea {
+	input,
+	textarea {
 		padding: 5px;
 		border: none;
 		border-radius: 5px;
 	}
 
-    input[type=radio]{
-        margin-right: 4px;
-    }
+	input[type="radio"] {
+		margin-right: 4px;
+	}
+
+	&__pic-preview {
+		justify-self: center;
+		img {
+		width: 100%;
+		max-width: 200px;
+		justify-self: center;
+	}}
+
+	&__btn {
+		justify-self: center;
+	}
 }
