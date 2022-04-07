@@ -122,7 +122,7 @@ const Register = () => {
 						onChange={handleChange}
 					/>
 
-					<fieldset>
+					<fieldset className="registration-form__radios-container">
 						<legend>Dog's age</legend>
 						<input
 							type="radio"
@@ -152,7 +152,7 @@ const Register = () => {
 						/>
 						<label htmlFor="senior">senior</label>
 					</fieldset>
-					<fieldset>
+					<fieldset className="registration-form__radios-container">
 						<legend>Dog's character</legend>
 						<input
 							type="radio"
@@ -171,7 +171,7 @@ const Register = () => {
 							checked={formData.character === "calm"}
 							onChange={handleChange}
 						/>
-						<label htmlFor="active">calm</label>
+						<label htmlFor="calm">calm</label>
 					</fieldset>
 					<label htmlFor="picture">Profile picture</label>
 					<input
@@ -199,7 +199,7 @@ const Register = () => {
 						value={formData.bio}
 						onChange={handleChange}
 					></textarea>
-					<p className="error-message">{errors}</p>
+					{errors && <p className="error-message">{errors}</p>}
 					<button className="button--primary registration-form__btn">
 						Create account
 					</button>
