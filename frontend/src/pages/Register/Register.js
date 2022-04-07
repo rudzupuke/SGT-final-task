@@ -122,56 +122,71 @@ const Register = () => {
 						onChange={handleChange}
 					/>
 
-					<fieldset>
+					<fieldset className="registration-form__radios-container">
 						<legend>Dog's age</legend>
-						<input
-							type="radio"
-							name="age"
-							id="puppy"
-							value="puppy"
-							checked={formData.age === "puppy"}
-							onChange={handleChange}
-						/>
-						<label htmlFor="puppy">puppy</label>
-						<input
-							type="radio"
-							name="age"
-							id="mature"
-							value="mature"
-							checked={formData.age === "mature"}
-							onChange={handleChange}
-						/>
-						<label htmlFor="mature">mature</label>
-						<input
-							type="radio"
-							name="age"
-							id="senior"
-							value="senior"
-							checked={formData.age === "senior"}
-							onChange={handleChange}
-						/>
-						<label htmlFor="senior">senior</label>
+
+						<label htmlFor="puppy">
+							<input
+								type="radio"
+								name="age"
+								id="puppy"
+								value="puppy"
+								checked={formData.age === "puppy"}
+								onChange={handleChange}
+							/>
+							puppy
+						</label>
+
+						<label htmlFor="mature">
+							<input
+								type="radio"
+								name="age"
+								id="mature"
+								value="mature"
+								checked={formData.age === "mature"}
+								onChange={handleChange}
+							/>
+							mature
+						</label>
+
+						<label htmlFor="senior">
+							<input
+								type="radio"
+								name="age"
+								id="senior"
+								value="senior"
+								checked={formData.age === "senior"}
+								onChange={handleChange}
+							/>
+							senior
+						</label>
 					</fieldset>
-					<fieldset>
+					<fieldset className="registration-form__radios-container">
 						<legend>Dog's character</legend>
-						<input
-							type="radio"
-							name="character"
-							id="active"
-							value="active"
-							checked={formData.character === "active"}
-							onChange={handleChange}
-						/>
-						<label htmlFor="active">active</label>
-						<input
-							type="radio"
-							name="character"
-							id="calm"
-							value="calm"
-							checked={formData.character === "calm"}
-							onChange={handleChange}
-						/>
-						<label htmlFor="active">calm</label>
+
+						<label htmlFor="active">
+							<input
+								type="radio"
+								name="character"
+								id="active"
+								value="active"
+								checked={formData.character === "active"}
+								onChange={handleChange}
+							/>
+							active
+						</label>
+
+						<label htmlFor="calm">
+							<input
+								type="radio"
+								name="character"
+								id="calm"
+								value="calm"
+								checked={formData.character === "calm"}
+								onChange={handleChange}
+							/>
+							calm
+						</label>
 					</fieldset>
 					<label htmlFor="picture">Profile picture</label>
 					<input
@@ -199,7 +214,7 @@ const Register = () => {
 						value={formData.bio}
 						onChange={handleChange}
 					></textarea>
-					<p className="error-message">{errors}</p>
+					{errors && <p className="error-message">{errors}</p>}
 					<button className="button--primary registration-form__btn">
 						Create account
 					</button>

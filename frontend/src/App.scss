@@ -2,13 +2,20 @@
 
 // shared color variables
 
-$dark-text: rgb(38, 21, 15);
+$dark-text: rgb(39, 27, 23);
 $white: rgb(255, 255, 255);
 $background-color: rgb(229, 229, 229);
 $primary: rgb(140, 61, 32);
 $primary-brigt: rgb(241, 119, 12);
 $primary-light: rgb(199, 178, 166);
 $primary-light-2: rgb(199, 178, 166);
+
+
+// general styles
+
+body {
+	color: $dark-text;
+}
 
 // reused elements
 

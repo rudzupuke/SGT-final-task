@@ -1,29 +1,47 @@
 @use "../../App.scss" as shared;
 
 .register {
-	display: grid;
 	margin: 20px;
-	justify-items: center;
+	h2 {
+		text-align: center;
+		margin-top: 4rem;
+		margin-bottom: 2rem;
+	}
 }
 
 .registration-form {
 	display: grid;
-	margin: 20px;
+	margin: 0 auto;
 	padding: 35px 30px;
 	border-radius: 5px;
 	gap: 10px;
-	max-width: 600px;
+	max-width: 500px;
 	background-color: shared.$primary-light;
 
 	input,
 	textarea {
-		padding: 5px;
+		padding: 8px;
 		border: none;
 		border-radius: 5px;
+		margin-bottom: 15px;
 	}
 
 	input[type="radio"] {
-		margin-right: 4px;
+		margin-right: 3px;
+	}
+
+	&__radios-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+		align-items: center;
+		border: 1px solid shared.$primary;
+
+		label {
+			flex-direction: row;
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	&__pic-preview {
