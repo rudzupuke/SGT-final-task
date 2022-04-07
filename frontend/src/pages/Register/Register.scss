@@ -18,7 +18,7 @@
 	max-width: 500px;
 	background-color: shared.$primary-light;
 
-	input,
+	input:not([type="radio"]),
 	textarea {
 		padding: 8px;
 		border: none;
@@ -26,31 +26,52 @@
 		margin-bottom: 15px;
 	}
 
-	input[type="radio"] {
-		margin-right: 3px;
-	}
-
 	&__radios-container {
 		display: flex;
+		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 15px;
 		align-items: center;
-		border: 1px solid shared.$primary;
+		border: none;
+		padding: 15px 0 15px;
+
+		// hides radio buttons visually but keeps them accessible to assistive technologies
+		input[type="radio"] {
+			clip: rect(0 0 0 0);
+			clip-path: inset(50%);
+			height: 1px;
+			overflow: hidden;
+			position: absolute;
+			white-space: nowrap;
+			width: 1px;
+		}
 
 		label {
-			flex-direction: row;
-			display: flex;
-			align-items: center;
+			padding: 10px;
+			border: solid 2px shared.$primary;
+			border-radius: 10px;
+			transition: all 300ms;
+		}
+
+		input[type="radio"]:checked + label {
+			border: 2px solid shared.$primary-bright;
+			// background-color: shared.$primary;
+			// color: shared.$white;
+		}
+
+		input[type="radio"]:focus-visible + label {
+			outline: 2px solid black;
 		}
 	}
 
 	&__pic-preview {
 		justify-self: center;
 		img {
-		width: 100%;
-		max-width: 200px;
-		justify-self: center;
-	}}
+			width: 100%;
+			max-width: 200px;
+			justify-self: center;
+		}
+	}
 
 	&__btn {
 		justify-self: center;
