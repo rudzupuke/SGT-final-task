@@ -1,9 +1,16 @@
 import { useState } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+
 import "./Register.scss";
 import Header from "../../components/Header/Header";
 
 const Register = () => {
+	const [cookies, setCookie] = useCookies(["user"]);
+	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
+		user_id: cookies.UserId,
 		email: "",
 		password: "",
 		name: "",
@@ -13,11 +20,33 @@ const Register = () => {
 		age: "",
 		character: "",
 		bio: "",
+		buddies: [],
 	});
+	const [errors, setError] = useState(null);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(formData);
+		if (formData.password !== formData.passwordRepeat) {
+			setError("The passwords don't match");
+			return;
+		}
+		try {
+			const response = await axios.post("http://localhost:8000/signup", {
+				formData,
+			});
+			console.log(formData);
+			console.log(`server response: ${response}`);
+
+			setCookie("Email", response.data.email);
+			setCookie("UserId", response.data.userId);
+			setCookie("AuthToken", response.data.token);
+
+			const success = response.status === 201;
+
+			if (success) navigate("/dashboard");
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const handleChange = (e) => {
@@ -92,15 +121,7 @@ const Register = () => {
 						value={formData.breed}
 						onChange={handleChange}
 					/>
-					<label htmlFor="picture">Photo url</label>
-					<input
-						type="url"
-						placeholder="Photo url"
-						name="picture"
-						id="picture"
-						value={formData.picture}
-						onChange={handleChange}
-					/>
+
 					<fieldset>
 						<legend>Dog's age</legend>
 						<input
@@ -152,6 +173,23 @@ const Register = () => {
 						/>
 						<label htmlFor="active">calm</label>
 					</fieldset>
+					<label htmlFor="picture">Profile picture</label>
+					<input
+						type="url"
+						placeholder="Photo url"
+						name="picture"
+						id="picture"
+						value={formData.picture}
+						onChange={handleChange}
+					/>
+					{formData.picture && (
+						<div className="registration-form__pic-preview">
+							<img
+								src={formData.picture}
+								alt="Profile picture preview"
+							/>
+						</div>
+					)}
 					<label htmlFor="bio">Bio</label>
 					<textarea
 						name="bio"
@@ -161,7 +199,10 @@ const Register = () => {
 						value={formData.bio}
 						onChange={handleChange}
 					></textarea>
-					<button className="button--primary">Create account</button>
+					<p className="error-message">{errors}</p>
+					<button className="button--primary registration-form__btn">
+						Create account
+					</button>
 				</form>
 			</main>
 		</>

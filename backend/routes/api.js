@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
+	console.log(req.body);
 	const { name, breed, picture, age, character, bio, email, password } =
-		req.body;
-
+		req.body.formData;
 	// generate random userId using uuid package:
 	const generatedUserId = uuidv4();
 

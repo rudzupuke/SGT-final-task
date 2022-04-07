@@ -12,7 +12,6 @@ const Home = ({ isOnHomePage, user }) => {
   const authToken = cookies.AuthToken;
 
   const handleClick = () => {
-    console.log("clicked!");
     setShowModal(true);
   };
   return (
