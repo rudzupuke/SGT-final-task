@@ -4,6 +4,7 @@ import "./DashBoard.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import DashboardBuddyCard from "../../components/Dashboard/DashboardBuddyCard";
 
 const DashBoard = ({ user, setUser }) => {
   console.log("render");
@@ -37,6 +38,14 @@ const DashBoard = ({ user, setUser }) => {
         <div className="dashboard">
           <Header authToken={authToken} user={user} />
           {user && <DashboardCard user={user} />}
+          {user && (
+            <div className="db-buddies-container">
+              <h1 className="db-buddies-container__heading">My buddies</h1>
+              <div className="db-buddies-container__buddies">
+                <DashboardBuddyCard user={user} />
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>

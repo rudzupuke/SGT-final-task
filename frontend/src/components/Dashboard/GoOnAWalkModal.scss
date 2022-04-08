@@ -1,0 +1,27 @@
+@use "../../App.scss" as shared;
+
+.go-on-walk-modal-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(47, 47, 47, 0.44);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-on-walk-modal {
+  width: 300px;
+  padding: 100px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: #593825;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
