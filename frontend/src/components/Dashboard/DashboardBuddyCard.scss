@@ -1,61 +1,61 @@
 @use "../../App.scss" as shared;
 
 .db-buddy-card {
-  background: #f2e6df;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 19px 19px 0px 0px;
-  width: 260px;
-
-  &__img {
-    display: block;
-    width: 260px;
-    height: 200px;
-    object-fit: cover;
+    background: #f2e6df;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 19px 19px 0px 0px;
-  }
+    width: 260px;
 
-  &__heading {
-    font-weight: 300;
-    color: shared.$dark-text;
-    margin: 0.5rem 0;
-
-    .bold {
-      font-weight: 600;
-      margin: 0;
-      padding: 0;
+    &__img {
+        display: block;
+        width: 260px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 19px 19px 0px 0px;
     }
-  }
 
-  &__btncont {
-    padding-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-  }
+    &__heading {
+        font-weight: 300;
+        color: shared.$dark-text;
+        margin: 0.5rem 0;
+
+        .bold {
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__btncont {
+        padding-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+    }
 }
 
 .button--buddies {
-  background-color: shared.$primary;
-  font-size: 12px;
-  font-weight: 300;
-  color: shared.$white;
-  width: 105px;
-  border: none;
-  border-radius: 9px;
-  padding: 0.5em 1.2em;
-  cursor: pointer;
+    background-color: shared.$primary;
+    font-size: 12px;
+    font-weight: 300;
+    color: shared.$white;
+    width: 105px;
+    border: none;
+    border-radius: 9px;
+    padding: 0.5em 1.2em;
+    cursor: pointer;
 
-  &:hover {
-    background-color: shared.$primary-brigt;
-  }
+    &:hover {
+        background-color: shared.$primary-bright;
+    }
 
-  &:active {
-    background-color: shared.$primary-brigt;
-  }
+    &:active {
+        background-color: shared.$primary-bright;
+    }
 
-  &:disabled {
-    background-color: shared.$primary-light;
-    cursor: not-allowed;
-  }
+    &:disabled {
+        background-color: shared.$primary-light;
+        cursor: not-allowed;
+    }
 }
