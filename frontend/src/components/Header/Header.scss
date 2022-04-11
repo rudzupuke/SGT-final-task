@@ -1,9 +1,11 @@
 @use "../../App.scss" as shared;
 
 .header {
-    padding: 5px 20px;
+    padding: 15px 20px;
     color: shared.$white;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
 
     a {
         color: inherit;
@@ -31,13 +33,14 @@
         }
     }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    // .container {
+    //     max-width: 1200px;
+    //     margin: 0 auto;
+    // 	align-items: center;
+
+    //     display: flex;
+    //     justify-content: space-between;
+    // }
 
     .nav {
         display: flex;
@@ -61,6 +64,7 @@
     .logo {
         display: flex;
         align-items: center;
+        padding: 10px;
 
         a {
             display: flex;
@@ -81,68 +85,57 @@
             max-width: 3rem;
         }
     }
-
-	.nav-toggle {
-		display: none;
-	}
 }
 
 // responsive navbar styles
 
-.header--loggedin {
-    .nav {
-        @media (max-width: shared.$layout-breakpoint-small) {
-            position: fixed;
-            inset: 0;
-            background-color: shared.$primary;
-            opacity: 0.9;
+.nav--hamburger {
+    @media (max-width: shared.$layout-breakpoint-small) {
+        position: fixed;
+        inset: 0;
+        background-color: shared.$primary;
+        opacity: 0.9;
+        justify-content: center;
+        z-index: 500;
+        transform: translateX(100%);
+        transition: transform 350ms ease-in;
+
+        &[data-visible="true"] {
+            transform: translateX(0%);
+        }
+
+        ul {
+            flex-direction: column;
             justify-content: center;
-            z-index: 500;
-            transform: translateX(100%);
-            transition: transform 350ms ease-in;
 
-            &[data-visible="true"] {
-                transform: translateX(0%);
-            }
-
-            ul {
-                flex-direction: column;
-                justify-content: center;
-
-                a {
-                    font-size: 16px;
-                    color: shared.$white;
-                }
+            a {
+                font-size: 16px;
+                color: shared.$white;
             }
         }
     }
 
-	.nav-toggle {
-		display: none;
-	
-		@media (max-width: shared.$layout-breakpoint-small) {
-			display: block;
-			position: absolute;
-			width: 2rem;
-			height: 2rem;
-			background: url(../../assets/menu_icon.svg);
+    
+}
+.nav-toggle {
+	display: none;
+
+	@media (max-width: shared.$layout-breakpoint-small) {
+		display: block;
+		position: absolute;
+		width: 2rem;
+		height: 2rem;
+		background: url(../../assets/menu_icon.svg);
+		background-repeat: no-repeat;
+		top: 1.5rem;
+		right: 1.5rem;
+		z-index: 999;
+		cursor: pointer;
+		border: none;
+
+		&[aria-expanded="true"] {
+			background: url(../../assets/close_icon.svg);
 			background-repeat: no-repeat;
-			top: 1.5rem;
-			right: 1.5rem;
-			z-index: 999;
-			cursor: pointer;
-			border: none;
-	
-			// &:hover {
-			// 	cursor: pointer;
-			// }
-	
-			&[aria-expanded="true"] {
-				background: url(../../assets/close_icon.svg);
-				background-repeat: no-repeat;
-			}
 		}
 	}
-	
 }
-

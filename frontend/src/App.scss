@@ -66,6 +66,12 @@ body {
 }
 
 // helper classes
+
+// hiding items completely
+.hidden {
+    display: none;
+}
+
 // hiding items that do not need to be in the UI but are important for screen readers
 .visually-hidden:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
