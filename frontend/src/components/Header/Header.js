@@ -17,8 +17,13 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
         navigate("/");
         window.location.reload();
     };
+
+    const toggleNav = () => {
+        console.log("Nav toggled!");
+    };
+
     return (
-        <header className={isOnHomePage ? "header" : "header header-loggedin"}>
+        <header className={isOnHomePage ? "header" : "header header--loggedin"}>
             <div className="container">
                 <div className="logo">
                     <Link to="/">
@@ -26,7 +31,15 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                         <span className="logo__text">dinder</span>
                     </Link>
                 </div>
-                <nav className="nav">
+                <button
+                    aria-controls="primary-navigation"
+                    aria-expanded="false"
+                    class="nav-toggle"
+                    onClick={toggleNav}
+                >
+                    <span class="visually-hidden">Menu</span>
+                </button>
+                <nav className="nav" data-visible="false">
                     <ul className="nav__list">
                         <li className="nav__item">
                             <Link to="/">Home</Link>
