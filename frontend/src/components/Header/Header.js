@@ -55,6 +55,11 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                     <li className="nav__item">
                         {authToken && <Link to="/dashboard">Dashboard</Link>}
                     </li>
+                    <li className="nav__item">
+                        {authToken && (
+                            <Link to="/findbuddies">Find buddies</Link>
+                        )}
+                    </li>
                     {!authToken && (
                         <li>
                             <button

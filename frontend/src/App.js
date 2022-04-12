@@ -5,33 +5,38 @@ import Register from "./pages/Register/Register";
 import DashBoard from "./pages/DashBoard/DashBoard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
+import FindBuddies from "./pages/FindBuddies/FindBuddies";
 
 function App() {
-  const [isOnHomePage, setIsOnHomePage] = useState(true);
-  const [user, setUser] = useState(null);
+    const [isOnHomePage, setIsOnHomePage] = useState(true);
+    const [user, setUser] = useState(null);
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home isOnHomePage={isOnHomePage} user={user} />}
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <DashBoard
-              isOnHomePage={isOnHomePage}
-              setIsOnHomePage={setIsOnHomePage}
-              user={user}
-              setUser={setUser}
-            />
-          }
-        />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={<Home isOnHomePage={isOnHomePage} user={user} />}
+                />
+                <Route
+                    path="/dashboard"
+                    element={
+                        <DashBoard
+                            isOnHomePage={isOnHomePage}
+                            setIsOnHomePage={setIsOnHomePage}
+                            user={user}
+                            setUser={setUser}
+                        />
+                    }
+                />
+                <Route
+                    path="/findbuddies"
+                    element={<FindBuddies user={user} />}
+                />
+                <Route path="/register" element={<Register />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
