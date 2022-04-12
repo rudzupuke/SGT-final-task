@@ -1,14 +1,16 @@
 @use "../../App.scss" as shared;
 
 .header {
-    padding: 15px 20px;
+    padding: 5px 20px;
     color: shared.$white;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
 
     @media (max-width: shared.$layout-breakpoint-small) {
-        padding: 10px 10px;
+        padding: 5px 10px;
     }
 
     a {
@@ -25,6 +27,8 @@
         background-color: shared.$white;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
         color: shared.$dark-text;
+        // set slightly higher z-index otherwise placeholder text in the registration form appears on the navbar when scrolling
+        z-index: 10;
 
         a {
             color: shared.$dark-text;
@@ -56,12 +60,11 @@
             align-items: center;
             list-style: none;
             gap: 12px;
-            padding-left: 20px;
         }
 
         &__button {
             font-size: 1.1rem;
-            padding: 10px 20px;
+            padding: 0.70em 1.20em;
         }
 
         @media (max-width: shared.$layout-breakpoint-small) {
@@ -69,12 +72,11 @@
 
             &__list {
                 gap: 8px;
-                padding-left: 20px;
             }
 
             &__button {
                 font-size: 1rem;
-                padding: 10px 15px;
+                padding: 0.70em 1.10em;
             }
         }
     }
@@ -82,7 +84,7 @@
     .logo {
         display: flex;
         align-items: center;
-        padding: 10px;
+        padding: 0.75em;
 
         a {
             display: flex;
@@ -104,7 +106,7 @@
         }
 
         @media (max-width: shared.$layout-breakpoint-small) {
-            padding: 0;
+            padding: 1em 0;
         }
     }
 }
@@ -126,12 +128,12 @@
             transform: translateX(0%);
         }
 
-        ul {
+        .nav__list {
             flex-direction: column;
             justify-content: center;
 
             a {
-                font-size: 16px;
+                font-size: 1.2rem;
                 color: shared.$white;
             }
         }

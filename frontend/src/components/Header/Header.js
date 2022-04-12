@@ -22,7 +22,6 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
     };
 
     const toggleNav = () => {
-        console.log("Nav toggled!");
         setNavExpanded((prevNavExpanded) => !prevNavExpanded);
     };
 
