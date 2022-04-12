@@ -12,17 +12,11 @@ const Home = ({ isOnHomePage, user }) => {
     const [cookies, setCookie, removeCookie] = useCookies();
     const authToken = cookies.AuthToken;
 
-    // I think not necessary, can also delete the onClick from the button
-    const handleClick = () => {
-        setShowModal(true);
-    };
-
     return (
         <>
             <div className="home">
                 <Header
                     authToken={authToken}
-                    // minimal={false}
                     setShowModal={setShowModal}
                     showModal={showModal}
                     isOnHomePage={isOnHomePage}
@@ -30,7 +24,7 @@ const Home = ({ isOnHomePage, user }) => {
                 />
                 <div className="home__container">
                     <h1 className="heading--main">Find your dog a buddy!</h1>
-                    <button className="button--primary" onClick={handleClick}>
+                    <button className="button--primary">
                         {authToken ? (
                             <Link to="/dashboard">My dashboard</Link>
                         ) : (

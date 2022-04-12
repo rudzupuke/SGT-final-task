@@ -7,6 +7,7 @@ $white: rgb(255, 255, 255);
 $background-color: rgb(229, 229, 229);
 $primary: rgb(140, 61, 32);
 $primary-bright: rgb(241, 119, 12);
+$primary-dark: rgb(92, 64, 54);
 $primary-light: rgb(199, 178, 166);
 $primary-light-2: rgb(199, 178, 166);
 
@@ -17,7 +18,8 @@ $layout-breakpoint-medium: 750px;
 // general styles
 
 body {
-    color: $dark-text;
+    color: $primary-dark;
+    //color: $dark-text;
 }
 
 // reused elements
