@@ -10,49 +10,75 @@ $primary-bright: rgb(241, 119, 12);
 $primary-light: rgb(199, 178, 166);
 $primary-light-2: rgb(199, 178, 166);
 
+// layout breakpoints 
+$layout-breakpoint-small: 420px;
+$layout-breakpoint-medium: 750px;
 
 // general styles
 
 body {
-	color: $dark-text;
+    color: $dark-text;
 }
 
 // reused elements
 
-.button--primary {
-	background-color: $primary;
-	padding: 12px 25px;
+.button {
 	border: none;
-	border-radius: 10px;
-	color: $white;
 	cursor: pointer;
-	font-size: 1rem;
+}
 
-	&:hover {
-		background-color: $primary-bright;
-	}
+.button--primary {
+    background-color: $primary;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    color: $white;
+    cursor: pointer;
+    font-size: 1rem;
 
-	&:active {
-		background-color: $primary-bright;
-	}
+    &:hover {
+        background-color: $primary-bright;
+    }
 
-	&:disabled {
-		background-color: $primary-light;
-		cursor: not-allowed;
-	}
+    &:active {
+        background-color: $primary-bright;
+    }
 
-	a {
-		color: $white;
-		text-decoration: none;
-	}
+    &:disabled {
+        background-color: $primary-light;
+        cursor: not-allowed;
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
 }
 
 .heading--main {
-	color: $white;
-	font-size: 3rem;
+    color: $white;
+    font-size: 3rem;
 }
 
 .error-message {
-	color: rgb(156, 8, 8);
-	font-weight: 500;
+    color: rgb(156, 8, 8);
+    font-weight: 500;
+}
+
+// helper classes
+
+// hiding items completely
+.hidden {
+    display: none;
+}
+
+// hiding items that do not need to be in the UI but are important for screen readers
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }

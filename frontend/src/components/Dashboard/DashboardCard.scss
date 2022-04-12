@@ -1,6 +1,8 @@
 @use "../../App.scss" as shared;
 
 .dashboard-card {
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   color: shared.$dark-text;
@@ -13,8 +15,10 @@
   &__body {
     display: flex;
     gap: 30px;
-    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
+
+  
 
     h2,
     h3,

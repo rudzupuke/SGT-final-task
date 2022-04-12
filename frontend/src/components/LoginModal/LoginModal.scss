@@ -11,6 +11,7 @@
     border-radius: 10px;
     color: shared.$dark-text;
     text-align: center;
+    z-index: 1000;
 
     .button--close {
         display: block;
