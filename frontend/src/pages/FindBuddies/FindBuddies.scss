@@ -1,0 +1,36 @@
+@use "../../App.scss" as shared;
+
+.findbuddies-container {
+    display: flex;
+    column-gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    color: shared.$dark-text;
+}
+
+.all-dogs-container {
+    width: 80%;
+
+    &__heading {
+        margin: 2.5rem 0;
+    }
+
+    &__dogs {
+        width: 910px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 25px;
+        column-gap: 35px;
+    }
+}
+
+.filter-container {
+    width: 20%;
+
+    &__heading {
+        text-align: center;
+        margin: 2.5rem 0;
+    }
+}
