@@ -1,8 +1,9 @@
 @use "../../App.scss" as shared;
 
 .register {
-	margin: 20px;
-	h2 {
+	margin: 20px 10px 100px;
+	h1 {
+		font-size: 2.5rem;
 		text-align: center;
 		margin-top: 4rem;
 		margin-bottom: 2rem;
@@ -12,11 +13,12 @@
 .registration-form {
 	display: grid;
 	margin: 0 auto;
-	padding: 35px 30px;
+	padding: 3.2em 3em;
 	border-radius: 5px;
 	gap: 10px;
 	max-width: 500px;
 	background-color: shared.$primary-light;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
 	input:not([type="radio"]),
 	textarea {
@@ -36,14 +38,18 @@
 		padding: 15px 0 15px;
 
 		// hides radio buttons visually but keeps them accessible to assistive technologies
+		// input[type="radio"]:not(:focus):not(:active) {
+		// 	clip: rect(0 0 0 0);
+		// 	clip-path: inset(50%);
+		// 	height: 1px;
+		// 	overflow: hidden;
+		// 	position: absolute;
+		// 	white-space: nowrap;
+		// 	width: 1px;
+		// }
+
 		input[type="radio"] {
-			clip: rect(0 0 0 0);
-			clip-path: inset(50%);
-			height: 1px;
-			overflow: hidden;
-			position: absolute;
-			white-space: nowrap;
-			width: 1px;
+			display: none;
 		}
 
 		label {
@@ -51,6 +57,11 @@
 			border: solid 2px shared.$primary;
 			border-radius: 10px;
 			transition: all 300ms;
+			cursor: pointer;
+
+			&:hover {
+				background-color: shared.$primary-light-2;
+			}
 		}
 
 		input[type="radio"]:checked + label {
@@ -75,5 +86,10 @@
 
 	&__btn {
 		justify-self: center;
+		// margin-top: 1em;
 	}
+
+	@media (max-width: shared.$layout-breakpoint-small) {
+        padding: 2em 1.5em;
+    }
 }
