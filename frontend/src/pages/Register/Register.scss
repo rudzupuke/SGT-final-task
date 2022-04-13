@@ -36,14 +36,18 @@
 		padding: 15px 0 15px;
 
 		// hides radio buttons visually but keeps them accessible to assistive technologies
+		// input[type="radio"]:not(:focus):not(:active) {
+		// 	clip: rect(0 0 0 0);
+		// 	clip-path: inset(50%);
+		// 	height: 1px;
+		// 	overflow: hidden;
+		// 	position: absolute;
+		// 	white-space: nowrap;
+		// 	width: 1px;
+		// }
+
 		input[type="radio"] {
-			clip: rect(0 0 0 0);
-			clip-path: inset(50%);
-			height: 1px;
-			overflow: hidden;
-			position: absolute;
-			white-space: nowrap;
-			width: 1px;
+			display: none;
 		}
 
 		label {

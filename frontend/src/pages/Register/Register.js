@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import LoginModal from "../../components/LoginModal/LoginModal";
 
 const Register = () => {
+    const [showModal, setShowModal] = useState(false);
     const [cookies, setCookie] = useCookies(["user"]);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -64,11 +66,11 @@ const Register = () => {
         <>
             <Header
                 whiteText={false}
-                setShowModal={() => {}}
-                showModal={false}
+                setShowModal={setShowModal}
+                showModal={showModal}
                 isOnHomePage={false}
             />
-
+            {showModal && <LoginModal setShowModal={setShowModal} />}
             <main className="register">
                 <h2>Create account</h2>
                 <form onSubmit={handleSubmit} className="registration-form">
