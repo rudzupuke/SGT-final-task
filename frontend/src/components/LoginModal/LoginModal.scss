@@ -18,11 +18,9 @@
 .login-modal {
     display: grid;
     justify-items: center;
-    position: absolute;
     margin: 5px;
     padding: 20px;
     max-width: 360px;
-    place-self: center;
     background-color: shared.$background-color;
     border-radius: 10px;
     color: shared.$dark-text;
@@ -69,4 +67,3 @@
         }
     }
 }
-
