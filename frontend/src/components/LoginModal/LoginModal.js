@@ -15,6 +15,8 @@ const LoginModal = ({ setShowModal }) => {
 
     const handleCloseModal = async () => {
         setShowModal(false);
+        // reenables scrolling
+        document.body.style.overflow = 'unset';
     };
 
     const handleSubmit = async (e) => {

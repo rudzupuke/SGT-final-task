@@ -11,6 +11,8 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
 
     const handleClick = () => {
         setShowModal(true);
+        // prevents scrolling when the modal is open
+        document.body.style.overflow = 'hidden';
     };
 
     const logout = () => {
