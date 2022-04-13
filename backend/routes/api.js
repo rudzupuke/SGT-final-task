@@ -48,6 +48,7 @@ router.post("/signup", async (req, res) => {
             age: age,
             character: character,
             bio: bio,
+            buddies: [],
         };
 
         // insert data object into database:
