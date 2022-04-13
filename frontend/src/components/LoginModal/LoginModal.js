@@ -40,7 +40,11 @@ const LoginModal = ({ setShowModal }) => {
 
             const success = response.status === 201;
 
-            if (success) navigate("/dashboard");
+            if (success) {
+                // reenables scrolling that was disabled upon openng the modal
+                document.body.style.overflow = "unset";
+                navigate("/dashboard");
+            }
         } catch (error) {
             console.log(error);
         }
