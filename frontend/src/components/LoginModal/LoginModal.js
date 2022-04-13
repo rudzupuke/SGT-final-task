@@ -16,7 +16,14 @@ const LoginModal = ({ setShowModal }) => {
     const handleCloseModal = () => {
         setShowModal(false);
         // reenables scrolling
-        document.body.style.overflow = 'unset';
+        document.body.style.overflow = "unset";
+    };
+
+    const handleClickOutside = (e) => {
+        // close the modal on a click on the overlay, outside the modal window
+        if (e.target.className === "overlay") {
+            setShowModal(false);
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -40,7 +47,7 @@ const LoginModal = ({ setShowModal }) => {
     };
 
     return (
-        <div className="overlay">
+        <div className="overlay" onClick={handleClickOutside}>
             <div className="login-modal">
                 <button className="button--close" onClick={handleCloseModal}>
                     &#10006;
