@@ -13,7 +13,7 @@ const LoginModal = ({ setShowModal }) => {
 
     console.log(email, password);
 
-    const handleCloseModal = async () => {
+    const handleCloseModal = () => {
         setShowModal(false);
         // reenables scrolling
         document.body.style.overflow = 'unset';
