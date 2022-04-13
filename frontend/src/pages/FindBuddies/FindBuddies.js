@@ -7,7 +7,8 @@ import { useState, useEffect } from "react";
 import Filter from "../../components/FindBuddies/Filter";
 
 const FindBuddies = ({ user }) => {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
+    const [usersForFiltering, setUsersForFiltering] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [cookies] = useCookies(["user"]);
     const userId = cookies.UserId;
@@ -19,6 +20,7 @@ const FindBuddies = ({ user }) => {
                 params: { userId }, // nosūta uz serveri lietotāja, kurš šobrīd ir ielogojies id, lai  serveris varētu neiekļaut lietotāju, kurš ir ielogojies rezultātos (pats sevi neredzētu pie suņiem, kurus var pievienot kā buddies)
             });
             setUsers(response.data);
+            setUsersForFiltering(response.data);
             setIsLoading(false);
         } catch (error) {
             console.log(error);
@@ -40,7 +42,7 @@ const FindBuddies = ({ user }) => {
                     </h1>
                     <div className="all-dogs-container__center">
                         <div className="all-dogs-container__dogs">
-                            {users &&
+                            {users.length > 0 &&
                                 users.map((user) => {
                                     return (
                                         <DogCard
@@ -60,7 +62,11 @@ const FindBuddies = ({ user }) => {
                 </div>
                 <div className="filter-container">
                     <h3 className="filter-container__heading">Filter by:</h3>
-                    <Filter />
+                    <Filter
+                        users={users}
+                        usersForFiltering={usersForFiltering}
+                        setUsers={setUsers}
+                    />
                 </div>
             </div>
         </>
