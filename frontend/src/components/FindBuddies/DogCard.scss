@@ -7,6 +7,10 @@
     width: 280px;
     padding-bottom: 20px;
 
+    hr {
+        border-top: 1px solid shared.$primary-light;
+    }
+
     &__img {
         display: block;
         width: 280px;
@@ -31,10 +35,15 @@
         }
     }
 
+    &__breed {
+        margin: 10px 0;
+    }
+
     &__character {
         padding: 0;
+        margin: 5px;
         font-weight: 300;
-        font-size: 12px;
+        font-size: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -47,10 +56,27 @@
     }
 
     &__bio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         font-size: 13px;
-        // background-color: aquamarine;
         min-height: 50px;
+        border: 1px solid shared.$primary;
+        border-radius: 10px;
+        padding: 8px;
+        position: relative;
+    }
+
+    &__bio::before {
+        position: absolute;
+        content: "bio:";
+        display: block;
+        background-color: #f2e6df;
+        color: shared.$primary;
+        padding: 0 5px;
+        top: -7px;
+        left: 20px;
     }
 
     &__btncont {

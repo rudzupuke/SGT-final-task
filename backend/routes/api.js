@@ -134,7 +134,17 @@ router.get("/users", async (req, res) => {
                 }
             )
             .toArray();
-        res.send(returnedUsers);
+
+        // filter out those users who are already buddies with user from returned results:
+        const filteredUsers = returnedUsers.filter(({ buddies }) => {
+            // check if at least one of the buddies array elements contain user_id that is equal to the user's who's logged in:
+            if (buddies.some((buddy) => buddy.user_id === userId)) {
+                // return false to filter this user out
+                return false;
+            } else return true;
+        });
+
+        res.send(filteredUsers);
     } finally {
         await client.close();
     }
