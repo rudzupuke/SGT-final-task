@@ -51,6 +51,7 @@ const FindBuddies = ({ user }) => {
                                             bio={user.bio}
                                             character={user.character}
                                             userId={user.user_id}
+                                            breed={user.breed}
                                         />
                                     );
                                 })}

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
-const DogCard = ({ name, picture, age, bio, character, userId }) => {
+const DogCard = ({ name, picture, age, bio, character, userId, breed }) => {
     const navigate = useNavigate();
     const [cookies] = useCookies(["user"]);
     // no cookies iegūst userId, ko nosūtīt serverim, lai varētu pievienot lietotājam buddy
@@ -31,6 +31,7 @@ const DogCard = ({ name, picture, age, bio, character, userId }) => {
                     <h2 className="dog-card__heading">
                         <span className="bold">{name}</span>, {age}
                     </h2>
+                    <p className="dog-card__breed">{breed}</p>
                     <hr />
                     <ul className="dog-card__character">
                         {Array.isArray(character) ? (
