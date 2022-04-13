@@ -72,7 +72,7 @@ const Register = () => {
             />
             {showModal && <LoginModal setShowModal={setShowModal} />}
             <main className="register">
-                <h2>Create account</h2>
+                <h1>Create account</h1>
                 <form onSubmit={handleSubmit} className="registration-form">
                     <label htmlFor="email">Your email</label>
                     <input
