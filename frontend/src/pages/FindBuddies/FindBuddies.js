@@ -63,9 +63,11 @@ const FindBuddies = ({ user }) => {
                 <div className="filter-container">
                     <h3 className="filter-container__heading">Filter by:</h3>
                     <Filter
+                        userId={userId}
                         users={users}
                         usersForFiltering={usersForFiltering}
                         setUsers={setUsers}
+                        getUsers={getUsers}
                     />
                 </div>
             </div>

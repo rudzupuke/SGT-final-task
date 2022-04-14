@@ -7,6 +7,7 @@
     margin: 0 auto;
     padding-bottom: 50px;
     color: shared.$dark-text;
+    justify-items: center;
 }
 
 .all-dogs-container {
@@ -17,7 +18,9 @@
     }
 
     &__dogs {
-        width: 910px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        max-width: 910px;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -27,7 +30,7 @@
 }
 
 .filter-container {
-    width: 20%;
+    min-width: 20%;
 
     &__heading {
         text-align: center;

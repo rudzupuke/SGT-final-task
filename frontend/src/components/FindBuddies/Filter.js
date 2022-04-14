@@ -1,217 +1,201 @@
 import "./Filter.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Filter = ({ setUsers, usersForFiltering }) => {
-    const [puppy, setPuppy] = useState(false);
-    const [mature, setMature] = useState(false);
-    const [senior, setSenior] = useState(false);
-    const [active, setActive] = useState(false);
-    const [calm, setCalm] = useState(false);
+// It would probably be better to get these from somewhere instead of harcoding :) 
+const ages = ["puppy", "mature", " senior"];
+const characters = ["active", "calm"];
 
-    const filterUsers = () => {
-        console.log(usersForFiltering);
+const Filter = ({ setUsers, usersForFiltering, getUsers, userId }) => {
+    // const [puppy, setPuppy] = useState(false);
+    // const [mature, setMature] = useState(false);
+    // const [senior, setSenior] = useState(false);
+    // const [active, setActive] = useState(false);
+    // const [calm, setCalm] = useState(false);
 
-        let ageArray = [];
-        if (puppy) ageArray.push("puppy");
-        if (mature) ageArray.push("mature");
-        if (senior) ageArray.push("senior");
+    const [characterArray, setCharacterArray] = useState(
+        new Array(characters.length).fill(...ages)
+    );
+    const [ageArray, setAgeArray] = useState(
+        new Array(ages.length).fill(false)
+    );
 
-        let characterArray = [];
-        if (active) characterArray.push("active");
-        if (calm) characterArray.push("calm");
-
-        const copyOfUsers = [...usersForFiltering];
-        if (ageArray.length > 0 || characterArray.length > 0) {
-            const filteredUsers = copyOfUsers.filter((user) => {
-                if (ageArray.length > 0 && characterArray.length === 0) {
-                    if (user.age.includes(ageArray[0])) return true;
-                    if (user.age.includes(ageArray[1])) return true;
-                    if (user.age.includes(ageArray[2])) return true;
-                } else if (characterArray.length > 0 && ageArray.length === 0) {
-                    if (user.character.includes(characterArray[0])) return true;
-                    if (user.character.includes(characterArray[1])) return true;
-                } else if (ageArray.length > 0 && characterArray.length > 0) {
-                    if (
-                        user.age.includes(ageArray[0]) &&
-                        user.character.includes(characterArray[0])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[0]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[1]) &&
-                        user.character.includes(characterArray[0])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[1]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[2]) &&
-                        user.character.includes(characterArray[0])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[2]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
-                }
-            });
-            setUsers(filteredUsers);
-        } else if (ageArray.length === 0 || characterArray === 0) {
-            setUsers(usersForFiltering);
-        }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(ageArray);
+        console.log(characterArray);
+        // could use the getUsers function or just write a request for users based on the filters and userId
     };
+
+    const handleAgeChange = (position) => {
+        const updatedAgeState = ageArray.map((item, index) =>
+            index === position ? !item : item
+        );
+
+        setAgeArray(updatedAgeState);
+    };
+
+    const handleCharacterChange = (position) => {
+        const updatedCharacterState = characterArray.map((item, index) =>
+            index === position ? !item : item
+        );
+
+        setCharacterArray(updatedCharacterState);
+    };
+
+    // const filterUsers = () => {
+    //     console.log(usersForFiltering);
+
+    // let ageArray = [];
+    // if (puppy) ageArray.push("puppy");
+    // if (mature) ageArray.push("mature");
+    // if (senior) ageArray.push("senior");
+
+    // let characterArray = [];
+    // if (active) characterArray.push("active");
+    // if (calm) characterArray.push("calm");
+
+    //     const copyOfUsers = [...usersForFiltering];
+    //     if (ageArray.length > 0 || characterArray.length > 0) {
+    //         const filteredUsers = copyOfUsers.filter((user) => {
+    //             if (ageArray.length > 0 && characterArray.length === 0) {
+    //                 if (user.age.includes(ageArray[0])) return true;
+    //                 if (user.age.includes(ageArray[1])) return true;
+    //                 if (user.age.includes(ageArray[2])) return true;
+    //             } else if (characterArray.length > 0 && ageArray.length === 0) {
+    //                 if (user.character.includes(characterArray[0])) return true;
+    //                 if (user.character.includes(characterArray[1])) return true;
+    //             } else if (ageArray.length > 0 && characterArray.length > 0) {
+    //                 if (
+    //                     user.age.includes(ageArray[0]) &&
+    //                     user.character.includes(characterArray[0])
+    //                 )
+    //                     return true;
+    //                 if (
+    //                     user.age.includes(ageArray[0]) &&
+    //                     user.character.includes(characterArray[1])
+    //                 )
+    //                     return true;
+    //                 if (
+    //                     user.age.includes(ageArray[1]) &&
+    //                     user.character.includes(characterArray[0])
+    //                 )
+    //                     return true;
+    //                 if (
+    //                     user.age.includes(ageArray[1]) &&
+    //                     user.character.includes(characterArray[1])
+    //                 )
+    //                     return true;
+    //                 if (
+    //                     user.age.includes(ageArray[2]) &&
+    //                     user.character.includes(characterArray[0])
+    //                 )
+    //                     return true;
+    //                 if (
+    //                     user.age.includes(ageArray[2]) &&
+    //                     user.character.includes(characterArray[1])
+    //                 )
+    //                     return true;
+    //             }
+    //         });
+    //         setUsers(filteredUsers);
+    //     } else if (ageArray.length === 0 || characterArray === 0) {
+    //         setUsers(usersForFiltering);
+    //     }
+    // };
 
     return (
         <>
-            <div className="filter-form">
+            <form className="filter-form" onSubmit={(e) => handleSubmit(e)}>
                 <p className="filter-form__p">Age:</p>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setPuppy(!puppy);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            puppy ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={puppy ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Puppy
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setMature(!mature);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            mature ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={mature ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Mature
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setSenior(!senior);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            senior ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={senior ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Senior
-                </label>
+
+                {ages.map((age, index) => {
+                    return (
+                        <label
+                            htmlFor={`age-${index}`}
+                            className="filter-form__checkbox-container"
+                            key={age}
+                        >
+                            <input
+                                type="checkbox"
+                                id={`age-${index}`}
+                                name={age}
+                                value={age}
+                                checked={ageArray[index]}
+                                onChange={() => {
+                                    handleAgeChange(index);
+                                }}
+                            ></input>
+                            <svg
+                                className={`checkbox ${
+                                    ageArray[index] ? "checkbox--active" : ""
+                                }`}
+                                // hides for screen readers:
+                                aria-hidden="true"
+                                viewBox="-2 0 19 9"
+                                fill="none"
+                            >
+                                <path
+                                    d="M1 4.5L5 9L14 1"
+                                    strokeWidth="2"
+                                    stroke={ageArray[index] ? "#fff" : "none"}
+                                />
+                            </svg>
+                            {age}
+                        </label>
+                    );
+                })}
 
                 <p>Character:</p>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setActive(!active);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            active ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={active ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Active
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setCalm(!calm);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${calm ? "checkbox--active" : ""}`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={calm ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Calm
-                </label>
-                <button className="btn--filter" onClick={filterUsers}>
+
+                {characters.map((character, index) => {
+                    return (
+                        <label
+                            htmlFor={`character-${index}`}
+                            className="filter-form__checkbox-container"
+                            key={character}
+                        >
+                            <input
+                                type="checkbox"
+                                id={`character-${index}`}
+                                name={character}
+                                value={character}
+                                checked={characterArray[index]}
+                                onChange={() => {
+                                    handleCharacterChange(index);
+                                }}
+                            ></input>
+                            <svg
+                                className={`checkbox ${
+                                    characterArray[index]
+                                        ? "checkbox--active"
+                                        : ""
+                                }`}
+                                // hides for screen readers:
+                                aria-hidden="true"
+                                viewBox="-2 0 19 9"
+                                fill="none"
+                            >
+                                <path
+                                    d="M1 4.5L5 9L14 1"
+                                    strokeWidth="2"
+                                    stroke={
+                                        characterArray[index] ? "#fff" : "none"
+                                    }
+                                />
+                            </svg>
+                            {character}
+                        </label>
+                    );
+                })}
+
+                <button
+                    className="btn--filter"
+                    // onSubmit={(e) => handleSubmit(e)}
+                    // onClick={filterUsers}
+                >
                     Filter
                 </button>
-            </div>
+            </form>
         </>
     );
 };
