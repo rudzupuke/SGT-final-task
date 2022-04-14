@@ -45,7 +45,7 @@ const DogCard = ({ name, picture, age, bio, character, userId, breed }) => {
                     <p className="dog-card__bio">{bio}</p>
                     <div className="dog-card__btncont">
                         <button
-                            className="button--buddies"
+                            className="button--primary-small"
                             onClick={() => addBuddy(myId, userId)}
                         >
                             Add buddy!

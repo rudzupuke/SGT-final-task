@@ -14,10 +14,13 @@
 
     &__heading {
         margin: 2.5rem 0;
+        text-align: center;
     }
 
     &__dogs {
-        width: 910px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        max-width: 910px;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;

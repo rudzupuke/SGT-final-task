@@ -46,17 +46,18 @@
     }
 }
 
+// make a general buttonoutline class
 .btn--filter {
-    background-color: shared.$primary-light;
-    color: shared.$primary-dark;
-    padding: 0.5em 2.5em;
-    border: 0px;
-    cursor: pointer;
-    border-radius: 10px;
+    // background-color: shared.$primary-light;
+    // color: shared.$primary-dark;
+    // padding: 0.5em 2.5em;
+    // border: 0px;
+    // cursor: pointer;
+    // border-radius: 10px;
     margin: 0 auto;
 }
 
-.btn--filter:hover {
-    background-color: shared.$primary-dark;
-    color: shared.$white;
-}
+// .btn--filter:hover {
+//     background-color: shared.$primary-dark;
+//     color: shared.$white;
+// }

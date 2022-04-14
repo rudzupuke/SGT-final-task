@@ -38,7 +38,7 @@ const FindBuddies = ({ user }) => {
             <div className="findbuddies-container">
                 <div className="all-dogs-container">
                     <h1 className="all-dogs-container__heading">
-                        find your dog a buddy
+                        Find your dog a buddy
                     </h1>
                     <div className="all-dogs-container__center">
                         <div className="all-dogs-container__dogs">

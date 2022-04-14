@@ -13,8 +13,9 @@
 
     &__img {
         display: block;
-        width: 280px;
+        //min-width: 200px;
         height: 200px;
+        width: 100%;
         object-fit: cover;
         border-radius: 19px 19px 0px 0px;
     }
@@ -81,6 +82,7 @@
 
     &__btncont {
         text-align: center;
+        // font-size: 1rem;
     }
 }
 
