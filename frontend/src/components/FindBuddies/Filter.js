@@ -13,7 +13,7 @@ const Filter = ({ setUsers, usersForFiltering, getUsers, userId }) => {
     // const [calm, setCalm] = useState(false);
 
     const [characterArray, setCharacterArray] = useState(
-        new Array(characters.length).fill(...ages)
+        new Array(characters.length).fill(false)
     );
     const [ageArray, setAgeArray] = useState(
         new Array(ages.length).fill(false)
