@@ -1,52 +1,60 @@
 @use "../../App.scss" as shared;
 
 .dashboard-card {
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: shared.$dark-text;
-
-  &__heading {
-    margin-top: 34px;
-    text-align: center;
-  }
-
-  &__body {
     display: flex;
-    gap: 30px;
-    max-width: 800px;
+    flex-direction: column;
     margin: 0 auto;
+    color: shared.$dark-text;
 
-  
-
-    h2,
-    h3,
-    p {
-      font-weight: 300;
-
-      .bold {
-        font-weight: 600;
-      }
+    &__heading {
+        margin-top: 34px;
+        text-align: center;
     }
-  }
 
-  &__img {
-    width: 253px;
-    height: 239px;
-    object-fit: cover;
-    border-radius: 33px;
-  }
+    &__body {
+        display: flex;
+        gap: 30px;
+        max-width: 800px;
+        margin: 0 auto;
 
-  .character {
-    padding: 0;
-    font-weight: 300;
-    display: flex;
-    list-style: none;
-  }
+        @media (max-width: 590px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+        }
 
-  li + li::before {
-    content: "|";
-    padding: 5px;
-  }
+        h2,
+        h3,
+        p,
+        .character {
+            font-weight: 300;
+
+            .bold {
+                font-weight: 600;
+            }
+
+            @media (max-width: 590px) {
+                text-align: center;
+                margin: 0.5em;
+            }
+        }
+    }
+
+    &__img {
+        width: 253px;
+        height: 239px;
+        object-fit: cover;
+        border-radius: 33px;
+
+        @media (max-width: shared.$layout-breakpoint-medium) {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .character {
+        padding: 0;
+        display: inline;
+        list-style: none;
+    }
 }

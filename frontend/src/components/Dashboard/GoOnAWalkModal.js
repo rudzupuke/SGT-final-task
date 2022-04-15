@@ -1,19 +1,27 @@
 import "./GoOnAWalkModal.scss";
 
-const GoOnAWalkModal = ({ setShowGoOnAWalkModal }) => {
-  return (
-    <div className="go-on-walk-modal-bg">
-      <div className="go-on-walk-modal">
-        <button
-          className="button--close"
-          onClick={() => setShowGoOnAWalkModal(false)}
+const GoOnAWalkModal = ({ setShowGoOnAWalkModal, buddysName }) => {
+    return (
+        <div
+            className="go-on-walk-modal-bg"
+            onClick={(e) =>
+                e.target.className === "go-on-walk-modal-bg" &&
+                setShowGoOnAWalkModal(false)
+            }
         >
-          &#10006;
-        </button>
-        You have booked a walk with ...!
-      </div>
-    </div>
-  );
+            <div className="go-on-walk-modal">
+                <button
+                    className="go-on-walk-modal__close"
+                    onClick={() => setShowGoOnAWalkModal(false)}
+                >
+                    &#10006;
+                </button>
+                <p className="go-on-walk-modal__text">
+                    You have booked a walk with {buddysName}!
+                </p>
+            </div>
+        </div>
+    );
 };
 
 export default GoOnAWalkModal;

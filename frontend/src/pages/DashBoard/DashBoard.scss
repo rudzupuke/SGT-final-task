@@ -1,6 +1,13 @@
 @use "../../App.scss" as shared;
 .dashboard {
     padding-bottom: 40px;
+    max-width: 820px;
+    margin: 0 auto;
+
+    @media (max-width: shared.$layout-breakpoint-medium) {
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 .loading {
@@ -12,8 +19,6 @@
 }
 
 .db-buddies-container {
-    max-width: 820px;
-    margin: 0 auto;
     text-align: center;
 
     &__heading {
@@ -24,5 +29,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+        justify-content: center;
     }
 }
