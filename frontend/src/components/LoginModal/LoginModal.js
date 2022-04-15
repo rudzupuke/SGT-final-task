@@ -37,6 +37,7 @@ const LoginModal = ({ setShowModal }) => {
             setCookie("Email", response.data.email);
             setCookie("UserId", response.data.userId);
             setCookie("AuthToken", response.data.token);
+            setCookie("UserName", response.data.name);
 
             const success = response.status === 201;
 
