@@ -12,13 +12,15 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
     const handleClick = () => {
         setShowModal(true);
         // prevents scrolling when the modal is open
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
     };
 
+    const userName = cookies.UserName;
     const logout = () => {
         removeCookie("UserId");
         removeCookie("Email");
         removeCookie("AuthToken");
+        removeCookie("UserName");
         navigate("/");
         window.location.reload();
     };
@@ -75,7 +77,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                     )}
                     {authToken && (
                         <>
-                            <li>Welcome back, {user && user.name}!</li>
+                            <li>Welcome back, {userName}!</li>
                             <li>
                                 <button
                                     className="button--primary nav__button"
