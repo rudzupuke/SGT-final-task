@@ -6,9 +6,17 @@
     border-radius: 19px 19px 0px 0px;
     width: 260px;
 
+    @media (max-width: shared.$layout-breakpoint-medium) {
+        width: 230px;
+    }
+
+    @media (max-width: 600px) {
+        width: 300px;
+    }
+
     &__img {
         display: block;
-        width: 260px;
+        width: 100%;
         height: 200px;
         object-fit: cover;
         border-radius: 19px 19px 0px 0px;
@@ -32,6 +40,15 @@
         align-items: center;
         justify-content: center;
         gap: 1em;
+
+        @media (max-width: shared.$layout-breakpoint-medium) {
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        @media (max-width: 600px) {
+            flex-direction: row;
+        }
     }
 }
 
