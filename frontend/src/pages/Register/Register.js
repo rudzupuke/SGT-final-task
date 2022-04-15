@@ -208,7 +208,6 @@ const Register = () => {
                     </button>
                 </form>
             </main>
-            <Footer />
         </>
     );
 };

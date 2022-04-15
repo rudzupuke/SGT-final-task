@@ -34,7 +34,7 @@ const Home = ({ isOnHomePage, user }) => {
                     {showModal && <LoginModal setShowModal={setShowModal} />}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };
