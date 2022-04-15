@@ -125,7 +125,14 @@
         position: fixed;
         inset: 0;
         background-color: shared.$primary;
-        opacity: 0.95;
+        background: rgb(109, 47, 24);
+        background: linear-gradient(
+            74deg,
+            rgba(109, 47, 24, 1) 10%,
+            rgba(186, 121, 65, 0.9304096638655462) 100%,
+            rgba(177, 101, 43, 1) 100%
+        );
+        //background: radial-gradient(circle, rgba(109,47,24,1) 10%, rgba(186,121,65,0.9304096638655462) 100%, rgba(177,101,43,1) 100%);
         justify-content: center;
         z-index: 500;
         transform: translateX(100%);
@@ -135,10 +142,8 @@
             transform: translateX(0%);
         }
 
-
         .nav__greeting {
-            color: shared.$white;
-            padding-top: 20px;
+            color: shared.$background-color;
         }
         .nav__list {
             flex-direction: column;
