@@ -3,7 +3,7 @@
     padding-bottom: 40px;
     max-width: 820px;
     margin: 0 auto;
-    min-height: calc(100vh - 280px);
+    //min-height: calc(100vh - 280px);
 
     @media (max-width: shared.$layout-breakpoint-medium) {
         width: 80%;
