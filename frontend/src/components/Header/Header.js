@@ -67,7 +67,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                     {!authToken && (
                         <li>
                             <button
-                                className="button--primary nav__button"
+                                className="button--outline nav__button"
                                 onClick={handleClick}
                                 disabled={showModal}
                             >
@@ -80,7 +80,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                             <li>Welcome back, {userName}!</li>
                             <li>
                                 <button
-                                    className="button--primary nav__button"
+                                    className="button--outline nav__button"
                                     onClick={logout}
                                 >
                                     Log Out
