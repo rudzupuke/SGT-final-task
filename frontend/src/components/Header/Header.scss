@@ -1,12 +1,12 @@
 @use "../../App.scss" as shared;
 
 .header {
-    padding: 5px 20px;
+    padding: 0.7em 1em 0.3em;
     color: shared.$white;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
-    // position: sticky;
+    position: sticky;
     top: 0;
 
     @media (max-width: shared.$layout-breakpoint-small) {
@@ -57,14 +57,21 @@
 
         &__list {
             display: flex;
+            margin: 0.5em;
             align-items: center;
             list-style: none;
             gap: 12px;
         }
 
+        &__greeting {
+            font-style: italic;
+            color: shared.$dark-text;
+        }
+
         &__button {
-            font-size: 1.1rem;
-            padding: 0.70em 1.20em;
+            // font-size: 1rem;
+            padding: 0.5em 1.2em;
+            margin-left: 0.5em;
         }
 
         @media (max-width: shared.$layout-breakpoint-small) {
@@ -76,7 +83,7 @@
 
             &__button {
                 font-size: 1rem;
-                padding: 0.70em 1.10em;
+                padding: 0.7em 1.1em;
             }
         }
     }
@@ -118,7 +125,7 @@
         position: fixed;
         inset: 0;
         background-color: shared.$primary;
-        opacity: 0.9;
+        opacity: 0.95;
         justify-content: center;
         z-index: 500;
         transform: translateX(100%);
@@ -128,9 +135,16 @@
             transform: translateX(0%);
         }
 
+
+        .nav__greeting {
+            color: shared.$white;
+            padding-top: 20px;
+        }
         .nav__list {
             flex-direction: column;
             justify-content: center;
+            padding: 0;
+            gap: 1em;
 
             a {
                 font-size: 1.2rem;

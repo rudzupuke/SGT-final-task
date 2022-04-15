@@ -61,6 +61,20 @@ body {
         }
     }
 
+    &--secondary {
+        @extend .button;
+        background-color: $primary-light;
+        color: $dark-text;
+        border: 2px solid $primary-dark;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $primary-light-2;
+            color: $white;
+            // outline: 2px solid $dark-text;
+        }
+    }
+
     &--outline {
         @extend .button;
         background-color: $white;

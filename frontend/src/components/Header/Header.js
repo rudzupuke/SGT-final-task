@@ -35,7 +35,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
             <div className="logo">
                 <Link to="/">
                     <img src={logo} className="logo__img" alt="logo"></img>
-                    <span className="logo__text">dinder</span>
+                    <span className="logo__text">Dinder</span>
                 </Link>
             </div>
             <button
@@ -67,7 +67,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                     {!authToken && (
                         <li>
                             <button
-                                className="button--outline nav__button"
+                                className="button--secondary nav__button"
                                 onClick={handleClick}
                                 disabled={showModal}
                             >
@@ -77,10 +77,12 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
                     )}
                     {authToken && (
                         <>
-                            <li>Welcome back, {userName}!</li>
+                            <li>
+                                <span className="nav__greeting"> Welcome back, {userName}! </span>
+                            </li>
                             <li>
                                 <button
-                                    className="button--outline nav__button"
+                                    className="button--secondary nav__button"
                                     onClick={logout}
                                 >
                                     Log Out
