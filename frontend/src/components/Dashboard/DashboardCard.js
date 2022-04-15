@@ -17,7 +17,7 @@ const DashboardCard = ({ user }) => {
 							<span className="bold">{user.name}</span>,{" "}
 							{user.breed}
 						</h2>
-						<h3>{user.age}</h3>
+						<h3>Age: {user.age}</h3>
 						{/* if the  character is not an array but a string simply renders a p tag with that string*/}
 						<ul className="character">
 							{Array.isArray(user.character) ? (
@@ -25,7 +25,7 @@ const DashboardCard = ({ user }) => {
 									return <li key={x}>{x}</li>;
 								})
 							) : (
-								<p>{user.character}</p>
+								<p>Character: {user.character}</p>
 							)}
 						</ul>
 						<p>{user.bio}</p>
