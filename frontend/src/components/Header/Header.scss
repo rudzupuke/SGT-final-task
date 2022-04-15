@@ -57,6 +57,7 @@
 
         &__list {
             display: flex;
+            padding: 0;
             margin: 0.5em;
             align-items: center;
             list-style: none;
@@ -66,10 +67,10 @@
         &__greeting {
             font-style: italic;
             color: shared.$dark-text;
+            margin-left: 0.8em;
         }
 
         &__button {
-            // font-size: 1rem;
             padding: 0.5em 1.2em;
             margin-left: 0.5em;
         }
@@ -145,6 +146,7 @@
         .nav__greeting {
             color: shared.$background-color;
         }
+
         .nav__list {
             flex-direction: column;
             justify-content: center;
