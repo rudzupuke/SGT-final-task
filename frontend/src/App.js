@@ -6,6 +6,8 @@ import DashBoard from "./pages/DashBoard/DashBoard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import FindBuddies from "./pages/FindBuddies/FindBuddies";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
     const [isOnHomePage, setIsOnHomePage] = useState(true);
@@ -35,6 +37,7 @@ function App() {
                 />
                 <Route path="/register" element={<Register />} />
             </Routes>
+            <Footer />
         </BrowserRouter>
     );
 }
