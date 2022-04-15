@@ -11,9 +11,9 @@ $primary-dark: rgb(92, 64, 54);
 $primary-light: rgb(199, 178, 166);
 $primary-light-2: rgb(201, 146, 115);
 
-// layout breakpoints 
+// layout breakpoints
 $layout-breakpoint-small: 420px;
-$layout-breakpoint-medium: 750px;
+$layout-breakpoint-medium: 790px;
 
 // general styles
 
@@ -25,34 +25,53 @@ body {
 // reused elements
 
 .button {
-	border: none;
-	cursor: pointer;
+    border: none;
+    cursor: pointer;
+    padding: 0.8em 1.7em;
+    border: none;
+    border-radius: 16px;
+    font-size: 1rem;
 
     &--primary {
+        @extend .button;
         background-color: $primary;
-        padding: 1em 1.7em;
-        border: none;
-        border-radius: 10px;
         color: $white;
-        cursor: pointer;
-        font-size: 1rem;
-    
+
         &:hover {
             background-color: $primary-bright;
         }
-    
+
         &:active {
             background-color: $primary-bright;
         }
-    
+
         &:disabled {
             background-color: $primary-light;
             cursor: not-allowed;
         }
-    
+
         a {
             color: $white;
             text-decoration: none;
+        }
+
+        &-small {
+            @extend .button--primary;
+            padding: 0.7em 1.3em;
+            font-size: 0.9rem;
+        }
+    }
+
+    &--outline {
+        @extend .button;
+        background-color: $white;
+        color: $primary;
+        border: 2px solid $primary;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $primary;
+            color: $white;
         }
     }
 }

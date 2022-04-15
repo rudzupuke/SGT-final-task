@@ -20,52 +20,31 @@ const Filter = ({ setUsers, usersForFiltering }) => {
         if (active) characterArray.push("active");
         if (calm) characterArray.push("calm");
 
+        // if both arrays are empty (user has not slected any filtering criteria), set users to all users
+        // moved this up because in such a case there is no need to check for the other conditions
+        if (ageArray.length === 0 && characterArray.length === 0) {
+            setUsers(usersForFiltering);
+            return;
+        }
+
         const copyOfUsers = [...usersForFiltering];
         if (ageArray.length > 0 || characterArray.length > 0) {
             const filteredUsers = copyOfUsers.filter((user) => {
                 if (ageArray.length > 0 && characterArray.length === 0) {
-                    if (user.age.includes(ageArray[0])) return true;
-                    if (user.age.includes(ageArray[1])) return true;
-                    if (user.age.includes(ageArray[2])) return true;
+                    if (ageArray.includes(user.age)) return true;
                 } else if (characterArray.length > 0 && ageArray.length === 0) {
-                    if (user.character.includes(characterArray[0])) return true;
-                    if (user.character.includes(characterArray[1])) return true;
+                    if (characterArray.includes(user.character)) return true;
                 } else if (ageArray.length > 0 && characterArray.length > 0) {
                     if (
-                        user.age.includes(ageArray[0]) &&
-                        user.character.includes(characterArray[0])
-                    )
+                        ageArray.includes(user.age) &&
+                        characterArray.includes(user.character)
+                    ) {
                         return true;
-                    if (
-                        user.age.includes(ageArray[0]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[1]) &&
-                        user.character.includes(characterArray[0])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[1]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[2]) &&
-                        user.character.includes(characterArray[0])
-                    )
-                        return true;
-                    if (
-                        user.age.includes(ageArray[2]) &&
-                        user.character.includes(characterArray[1])
-                    )
-                        return true;
+                    }
                 }
+                return false;
             });
             setUsers(filteredUsers);
-        } else if (ageArray.length === 0 || characterArray === 0) {
-            setUsers(usersForFiltering);
         }
     };
 
@@ -208,7 +187,7 @@ const Filter = ({ setUsers, usersForFiltering }) => {
                     </svg>
                     Calm
                 </label>
-                <button className="btn--filter" onClick={filterUsers}>
+                <button className="btn--filter button--outline" onClick={filterUsers}>
                     Filter
                 </button>
             </div>

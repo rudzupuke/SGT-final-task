@@ -2,11 +2,15 @@
 
 .findbuddies-container {
     display: flex;
-    column-gap: 50px;
-    max-width: 1200px;
+    column-gap: 30px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding-bottom: 50px;
+    padding: 0 15px 50px 15px;
     color: shared.$dark-text;
+
+    @media (max-width: shared.$layout-breakpoint-medium) {
+        flex-direction: column-reverse;
+    }
 }
 
 .all-dogs-container {
@@ -14,23 +18,39 @@
 
     &__heading {
         margin: 2.5rem 0;
+        text-align: center;
     }
 
     &__dogs {
-        width: 910px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        justify-content: center;
+        // max-width: 910px;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
         row-gap: 25px;
         column-gap: 35px;
     }
+
+    @media (max-width: shared.$layout-breakpoint-medium) {
+        width: 100%;
+    }
 }
 
 .filter-container {
+    margin-top: 2em;
+    padding: 1em;
     width: 20%;
+    background-color: shared.$background-color;
 
     &__heading {
         text-align: center;
-        margin: 2.5rem 0;
+        margin: 1rem 0;
+    }
+
+    @media (max-width: shared.$layout-breakpoint-medium) {
+        width: calc(100% - 2em);
+        place-items: center;
     }
 }
