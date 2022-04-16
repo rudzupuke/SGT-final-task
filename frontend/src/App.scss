@@ -10,7 +10,6 @@ $primary-bright: rgb(241, 119, 12);
 $primary-dark: rgb(92, 64, 54);
 $primary-light: rgb(199, 178, 166);
 $primary-light-2: rgb(201, 146, 115);
-
 // layout breakpoints
 $layout-breakpoint-small: 420px;
 $layout-breakpoint-medium: 840px;
@@ -19,7 +18,6 @@ $layout-breakpoint-medium: 840px;
 
 body {
     color: $primary-dark;
-    //color: $dark-text;
 }
 
 // reused elements
@@ -62,6 +60,20 @@ body {
         }
     }
 
+    &--secondary {
+        @extend .button;
+        background-color: $primary-light;
+        color: $dark-text;
+        // border: 2px solid $primary-dark;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $primary-light-2;
+            color: $white;
+            // outline: 2px solid $dark-text;
+        }
+    }
+
     &--outline {
         @extend .button;
         background-color: $white;
@@ -75,34 +87,6 @@ body {
         }
     }
 }
-
-// .button--primary {
-//     background-color: $primary;
-//     padding: 12px 25px;
-//     border: none;
-//     border-radius: 10px;
-//     color: $white;
-//     cursor: pointer;
-//     font-size: 1rem;
-
-//     &:hover {
-//         background-color: $primary-bright;
-//     }
-
-//     &:active {
-//         background-color: $primary-bright;
-//     }
-
-//     &:disabled {
-//         background-color: $primary-light;
-//         cursor: not-allowed;
-//     }
-
-//     a {
-//         color: $white;
-//         text-decoration: none;
-//     }
-// }
 
 .heading--main {
     color: $white;
