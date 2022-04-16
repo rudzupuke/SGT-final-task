@@ -1,6 +1,5 @@
 import "./Filter.scss";
 import { useState } from "react";
-import Loader from "../Loader/Loader";
 
 const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
     const [puppy, setPuppy] = useState(false);
