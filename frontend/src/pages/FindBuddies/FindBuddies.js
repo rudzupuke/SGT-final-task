@@ -35,8 +35,9 @@ const FindBuddies = ({ user }) => {
 
     return (
         <>
-            {isLoading && <Loader />}
             <Header user={user} authToken={authToken} />
+            {isLoading && <Loader />}
+            {!isLoading && (
             <div className="findbuddies-container">
                 <div className="all-dogs-container">
                     <h1 className="all-dogs-container__heading">
@@ -68,9 +69,11 @@ const FindBuddies = ({ user }) => {
                         users={users}
                         usersForFiltering={usersForFiltering}
                         setUsers={setUsers}
+                        setIsLoading={setIsLoading}
                     />
                 </div>
-            </div>
+            </div>  )}
+           
         </>
     );
 };

@@ -33,22 +33,24 @@ const DashBoard = ({ user, setUser }) => {
     return (
         <>
             {isLoading && <Loader />}
-            <>
-                <Header authToken={authToken} user={user} />
-                <div className="dashboard">
-                    {user && <DashboardCard user={user} />}
-                    {user && (
-                        <div className="db-buddies-container">
-                            <h1 className="db-buddies-container__heading">
-                                My buddies
-                            </h1>
-                            <div className="db-buddies-container__buddies">
-                                <DashboardBuddyCard user={user} />
+            {!isLoading && (
+                <>
+                    <Header authToken={authToken} user={user} />
+                    <div className="dashboard">
+                        {user && <DashboardCard user={user} />}
+                        {user && (
+                            <div className="db-buddies-container">
+                                <h1 className="db-buddies-container__heading">
+                                    My buddies
+                                </h1>
+                                <div className="db-buddies-container__buddies">
+                                    <DashboardBuddyCard user={user} />
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </div>
-            </>
+                        )}
+                    </div>
+                </>
+            )}
         </>
     );
 };
