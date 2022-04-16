@@ -32,10 +32,10 @@ const DashBoard = ({ user, setUser }) => {
 
     return (
         <>
+            <Header authToken={authToken} user={user} />
             {isLoading && <Loader />}
             {!isLoading && (
                 <>
-                    <Header authToken={authToken} user={user} />
                     <div className="dashboard">
                         {user && <DashboardCard user={user} />}
                         {user && (
