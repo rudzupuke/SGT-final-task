@@ -1,9 +1,90 @@
 @use "../../App.scss" as shared;
 
 .footer {
-    padding: 3em;
-    text-align: center;
+    font-size: 14px;
+    padding: 3em 3em 1em 3em;
     color: shared.$white;
     background-color: shared.$primary-dark;
 
+    &__container {
+        display: flex;
+        gap: 100px;
+        padding: 1em 0 2em 0;
+
+        @media (max-width: shared.$layout-breakpoint-medium) {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        &-logo {
+            width: 300px;
+            &-img {
+                width: 120px;
+            }
+            &-text {
+                margin: 5px 0;
+                line-height: 1.5em;
+            }
+        }
+
+        &-legal {
+            @media (max-width: shared.$layout-breakpoint-medium) {
+                li {
+                    display: inline;
+                    padding-right: 10px;
+                }
+            }
+        }
+
+        &-social {
+            svg {
+                fill: shared.$white;
+                width: 30px;
+
+                &:hover path {
+                    fill: shared.$primary-bright;
+                    transition: 0.2s ease-in;
+                }
+            }
+
+            li {
+                display: inline;
+            }
+
+            li + li {
+                padding-left: 30px;
+            }
+        }
+    }
+
+    &__copyright {
+        border-top: 1px solid #735e57;
+        padding: 1em 0 0 0;
+        text-align: center;
+    }
+
+    h3 {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li + li {
+        padding-top: 10px;
+    }
+
+    a {
+        color: shared.$white;
+        text-decoration: none;
+        transition: 0.2s ease-in;
+
+        &:hover {
+            color: shared.$primary-bright;
+        }
+    }
 }
