@@ -1,5 +1,6 @@
 import "./Filter.scss";
 import { useState } from "react";
+import Loader from "../Loader/Loader";
 
 const Filter = ({ setUsers, usersForFiltering }) => {
     const [puppy, setPuppy] = useState(false);
@@ -187,7 +188,10 @@ const Filter = ({ setUsers, usersForFiltering }) => {
                     </svg>
                     Calm
                 </label>
-                <button className="btn--filter button--outline" onClick={filterUsers}>
+                <button
+                    className="btn--filter button--outline"
+                    onClick={filterUsers}
+                >
                     Filter
                 </button>
             </div>
