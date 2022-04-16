@@ -1,11 +1,11 @@
-import Header from "../../components/Header/Header";
 import { useCookies } from "react-cookie";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./FindBuddies.scss";
+import Header from "../../components/Header/Header";
 import DogCard from "../../components/FindBuddies/DogCard";
-import Loader from "../../components/Loader/Loader";
-import { useState, useEffect } from "react";
 import Filter from "../../components/FindBuddies/Filter";
+import Loader from "../../components/Loader/Loader";
 
 const FindBuddies = ({ user }) => {
     const [users, setUsers] = useState([]);

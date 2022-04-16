@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import "./DashBoard.scss";
 import Header from "../../components/Header/Header";
 import DashboardCard from "../../components/Dashboard/DashboardCard";
 import Loader from "../../components/Loader/Loader";
-import "./DashBoard.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useCookies } from "react-cookie";
 import DashboardBuddyCard from "../../components/Dashboard/DashboardBuddyCard";
 
 const DashBoard = ({ user, setUser }) => {
@@ -33,24 +33,22 @@ const DashBoard = ({ user, setUser }) => {
     return (
         <>
             {isLoading && <Loader />}
-            {!isLoading && (
-                <>
-                    <Header authToken={authToken} user={user} />
-                    <div className="dashboard">
-                        {user && <DashboardCard user={user} />}
-                        {user && (
-                            <div className="db-buddies-container">
-                                <h1 className="db-buddies-container__heading">
-                                    My buddies
-                                </h1>
-                                <div className="db-buddies-container__buddies">
-                                    <DashboardBuddyCard user={user} />
-                                </div>
+            <>
+                <Header authToken={authToken} user={user} />
+                <div className="dashboard">
+                    {user && <DashboardCard user={user} />}
+                    {user && (
+                        <div className="db-buddies-container">
+                            <h1 className="db-buddies-container__heading">
+                                My buddies
+                            </h1>
+                            <div className="db-buddies-container__buddies">
+                                <DashboardBuddyCard user={user} />
                             </div>
-                        )}
-                    </div>
-                </>
-            )}
+                        </div>
+                    )}
+                </div>
+            </>
         </>
     );
 };
