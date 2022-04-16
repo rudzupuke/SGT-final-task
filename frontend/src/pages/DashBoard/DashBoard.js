@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import DashboardCard from "../../components/Dashboard/DashboardCard";
+import Loader from "../../components/Loader/Loader";
 import "./DashBoard.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,7 +32,7 @@ const DashBoard = ({ user, setUser }) => {
 
     return (
         <>
-            {isLoading && <div className="loading">Loading..</div>}
+            {isLoading && <Loader />}
             {!isLoading && (
                 <>
                     <Header authToken={authToken} user={user} />
