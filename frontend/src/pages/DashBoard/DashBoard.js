@@ -7,13 +7,11 @@ import { useCookies } from "react-cookie";
 import DashboardBuddyCard from "../../components/Dashboard/DashboardBuddyCard";
 
 const DashBoard = ({ user, setUser }) => {
-    console.log("render");
     const [isLoading, setIsLoading] = useState(true);
     const [cookies] = useCookies(["user"]);
 
     const userId = cookies.UserId;
     const authToken = cookies.AuthToken;
-    //   console.log(userId);
 
     const getUser = async () => {
         try {

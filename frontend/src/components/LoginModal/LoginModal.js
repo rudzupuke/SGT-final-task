@@ -11,8 +11,6 @@ const LoginModal = ({ setShowModal }) => {
     const [cookies, setCookie, removeCookie] = useCookies(["user"]);
     const navigate = useNavigate();
 
-    console.log(email, password);
-
     const handleCloseModal = () => {
         setShowModal(false);
         // reenables scrolling

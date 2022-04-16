@@ -28,7 +28,7 @@ const DashboardBuddyCard = ({ user }) => {
         setShowGoOnAWalkModal(true);
         setBuddyToGoOnAWalk(buddiesName);
     };
-    console.log(showGoOnAWalkModal);
+
     return (
         <>
             {buddies &&
