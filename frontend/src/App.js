@@ -3,11 +3,11 @@ import "./App.scss";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import DashBoard from "./pages/DashBoard/DashBoard";
+import ScrollToTop from "./components/UtilComponents/ScrollToTop";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import FindBuddies from "./pages/FindBuddies/FindBuddies";
 import Footer from "./components/Footer/Footer";
-
 
 function App() {
     const [isOnHomePage, setIsOnHomePage] = useState(true);
@@ -15,6 +15,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <Routes>
                 <Route
                     path="/"
