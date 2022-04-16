@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import "./FindBuddies.scss";
 import DogCard from "../../components/FindBuddies/DogCard";
+import Loader from "../../components/Loader/Loader";
 import { useState, useEffect } from "react";
 import Filter from "../../components/FindBuddies/Filter";
 
@@ -34,6 +35,7 @@ const FindBuddies = ({ user }) => {
 
     return (
         <>
+            {isLoading && <Loader />}
             <Header user={user} authToken={authToken} />
             <div className="findbuddies-container">
                 <div className="all-dogs-container">
