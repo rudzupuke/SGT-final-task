@@ -1,10 +1,11 @@
-import Header from "../../components/Header/Header";
 import { useCookies } from "react-cookie";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./FindBuddies.scss";
+import Header from "../../components/Header/Header";
 import DogCard from "../../components/FindBuddies/DogCard";
-import { useState, useEffect } from "react";
 import Filter from "../../components/FindBuddies/Filter";
+import Loader from "../../components/Loader/Loader";
 
 const FindBuddies = ({ user }) => {
     const [users, setUsers] = useState([]);
@@ -35,6 +36,8 @@ const FindBuddies = ({ user }) => {
     return (
         <>
             <Header user={user} authToken={authToken} />
+            {isLoading && <Loader />}
+            {!isLoading && (
             <div className="findbuddies-container">
                 <div className="all-dogs-container">
                     <h1 className="all-dogs-container__heading">
@@ -66,9 +69,11 @@ const FindBuddies = ({ user }) => {
                         users={users}
                         usersForFiltering={usersForFiltering}
                         setUsers={setUsers}
+                        setIsLoading={setIsLoading}
                     />
                 </div>
-            </div>
+            </div>  )}
+           
         </>
     );
 };

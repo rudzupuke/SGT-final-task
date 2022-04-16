@@ -1,7 +1,7 @@
 import "./Filter.scss";
 import { useState } from "react";
 
-const Filter = ({ setUsers, usersForFiltering }) => {
+const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
     const [puppy, setPuppy] = useState(false);
     const [mature, setMature] = useState(false);
     const [senior, setSenior] = useState(false);
@@ -187,7 +187,10 @@ const Filter = ({ setUsers, usersForFiltering }) => {
                     </svg>
                     Calm
                 </label>
-                <button className="btn--filter button--outline" onClick={filterUsers}>
+                <button
+                    className="btn--filter button--outline"
+                    onClick={filterUsers}
+                >
                     Filter
                 </button>
             </div>

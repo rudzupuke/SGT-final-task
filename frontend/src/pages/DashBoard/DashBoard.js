@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import "./DashBoard.scss";
 import Header from "../../components/Header/Header";
 import DashboardCard from "../../components/Dashboard/DashboardCard";
-import "./DashBoard.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useCookies } from "react-cookie";
+import Loader from "../../components/Loader/Loader";
 import DashboardBuddyCard from "../../components/Dashboard/DashboardBuddyCard";
 
 const DashBoard = ({ user, setUser }) => {
@@ -31,10 +32,10 @@ const DashBoard = ({ user, setUser }) => {
 
     return (
         <>
-            {isLoading && <div className="loading">Loading..</div>}
+            <Header authToken={authToken} user={user} />
+            {isLoading && <Loader />}
             {!isLoading && (
                 <>
-                    <Header authToken={authToken} user={user} />
                     <div className="dashboard">
                         {user && <DashboardCard user={user} />}
                         {user && (

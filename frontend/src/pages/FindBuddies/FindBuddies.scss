@@ -3,7 +3,7 @@
 .findbuddies-container {
     display: flex;
     column-gap: 30px;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px 50px 15px;
     color: shared.$dark-text;
@@ -23,7 +23,7 @@
 
     &__dogs {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         justify-content: center;
         // max-width: 910px;
         margin: 0 auto;
