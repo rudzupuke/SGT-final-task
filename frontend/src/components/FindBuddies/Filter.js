@@ -8,8 +8,9 @@ const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
     const [active, setActive] = useState(false);
     const [calm, setCalm] = useState(false);
 
-    const filterUsers = () => {
+    const filterUsers = (e) => {
         console.log(usersForFiltering);
+        e.preventDefault();
 
         let ageArray = [];
         if (puppy) ageArray.push("puppy");
@@ -50,7 +51,7 @@ const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
 
     return (
         <>
-            <div className="filter-form">
+            <form className="filter-form" onSubmit={(e) => filterUsers(e)}>
                 <fieldset>
                     <legend>Age:</legend>
                     <label className="filter-form__checkbox-container">
@@ -192,13 +193,8 @@ const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
                         Calm
                     </label>
                 </fieldset>
-                <button
-                    className="btn--filter button--outline"
-                    onClick={filterUsers}
-                >
-                    Filter
-                </button>
-            </div>
+                <button className="btn--filter button--outline">Filter</button>
+            </form>
         </>
     );
 };
