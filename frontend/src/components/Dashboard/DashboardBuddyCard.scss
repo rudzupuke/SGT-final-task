@@ -16,7 +16,6 @@
 
     &__no-buddies {
         font-size: 1.2rem;
-
         a {
             color: shared.$primary;
 
@@ -24,6 +23,10 @@
                 color: shared.$primary-bright;
                 transition: all ease-in 300ms;
             }
+        }
+
+        p {
+            margin: 0.5em;
         }
     }
 
