@@ -20,6 +20,12 @@ body {
     color: $primary-dark;
 }
 
+// resetting links 
+
+a {
+    text-decoration: none;
+}
+
 // reused elements
 
 .button {
