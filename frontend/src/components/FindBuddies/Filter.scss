@@ -7,8 +7,16 @@
     row-gap: 15px;
     color: shared.$primary-dark;
 
-    p {
-        margin: 15px 0;
+    legend {
+        margin: 0.8em 0;
+        font-weight: 600;
+    }
+
+    fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9em;
     }
 
     &__checkbox-container {
@@ -46,25 +54,17 @@
     }
 
     @media (max-width: shared.$layout-breakpoint-medium) {
-        flex-direction: row;
         align-items: center;
         gap: 1em;
         flex-wrap: wrap;
+
+        fieldset {
+            flex-direction: row;
+            align-self: flex-start;
+        }
     }
 }
 
-// make a general buttonoutline class
 .btn--filter {
-    // background-color: shared.$primary-light;
-    // color: shared.$primary-dark;
-    // padding: 0.5em 2.5em;
-    // border: 0px;
-    // cursor: pointer;
-    // border-radius: 10px;
     margin: 0 auto;
 }
-
-// .btn--filter:hover {
-//     background-color: shared.$primary-dark;
-//     color: shared.$white;
-// }
