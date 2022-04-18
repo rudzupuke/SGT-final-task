@@ -196,7 +196,7 @@ router.post("/addbuddy", async (req, res) => {
         res.send({ userOne, userTwo });
     } catch (error) {
         console.log(error);
-        res.status(400).send({ error: "Could not process your request" });
+        res.status(400).send({ error: "Could not process the request" });
     } finally {
         await client.close();
     }
