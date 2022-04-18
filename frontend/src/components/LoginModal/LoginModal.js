@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const LoginModal = ({ setShowModal }) => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-    const [errors, setError] = useState([]);
+    const [error, setError] = useState(null);
     const [cookies, setCookie, removeCookie] = useCookies(["user"]);
     const navigate = useNavigate();
 
@@ -39,16 +39,16 @@ const LoginModal = ({ setShowModal }) => {
 
             const success = response.status === 201;
 
-            if (success) {
-                // reenables scrolling that was disabled upon openng the modal
-                document.body.style.overflow = "unset";
-                navigate("/dashboard");
+            if (!success) {
+                setError("Incorrect email or password");
+                return;
             }
+            // reenables scrolling that was disabled upon openng the modal
+            document.body.style.overflow = "unset";
+            navigate("/dashboard");
         } catch (error) {
-            console.log(error);
-            setError((errors) => {
-                errors.push(error);
-            });
+            console.log(error.message);
+            setError("Incorrect email or password");
         }
     };
 
@@ -85,7 +85,7 @@ const LoginModal = ({ setShowModal }) => {
                         value="Log In"
                         className="button--primary"
                     />
-                    <p className="error-message">{errors}</p>
+                    {error && <p className="error-message">{error}</p>}
                 </form>
             </div>
         </div>

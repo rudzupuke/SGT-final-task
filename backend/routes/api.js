@@ -66,6 +66,7 @@ router.post("/signup", async (req, res) => {
         });
     } catch (err) {
         console.log(err);
+        return res.status(400).send({ error: 'Could not create an account' });
     }
 });
 
@@ -95,7 +96,7 @@ router.post("/login", async (req, res) => {
                 name: user.name,
             });
         } else {
-            res.status(400).send("Invalid Credentials");
+            res.status(400).send({error: "Invalid Credentials"});
         }
     } catch (err) {
         console.log(err);
@@ -188,6 +189,7 @@ router.post("/addbuddy", async (req, res) => {
         res.send({ userOne, userTwo });
     } catch (error) {
         console.log(error);
+        res.status(400).send({ error: 'Could not process your request' });
     } finally {
         await client.close();
     }
