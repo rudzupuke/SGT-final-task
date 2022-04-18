@@ -20,6 +20,13 @@ body {
     color: $primary-dark;
 }
 
+// resetting links
+
+a {
+    text-decoration: none;
+    transition: all ease-in 300ms;
+}
+
 // reused elements
 
 .button {
@@ -29,6 +36,7 @@ body {
     border: none;
     border-radius: 16px;
     font-size: 1rem;
+    transition: all ease-in 400ms;
 
     &--primary {
         @extend .button;

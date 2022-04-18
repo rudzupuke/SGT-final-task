@@ -8,8 +8,9 @@ const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
     const [active, setActive] = useState(false);
     const [calm, setCalm] = useState(false);
 
-    const filterUsers = () => {
+    const filterUsers = (e) => {
         console.log(usersForFiltering);
+        e.preventDefault();
 
         let ageArray = [];
         if (puppy) ageArray.push("puppy");
@@ -50,150 +51,150 @@ const Filter = ({ setUsers, usersForFiltering, setIsLoading }) => {
 
     return (
         <>
-            <div className="filter-form">
-                <p className="filter-form__p">Age:</p>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setPuppy(!puppy);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            puppy ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={puppy ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Puppy
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setMature(!mature);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            mature ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={mature ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Mature
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setSenior(!senior);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            senior ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={senior ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Senior
-                </label>
-
-                <p>Character:</p>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setActive(!active);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${
-                            active ? "checkbox--active" : ""
-                        }`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={active ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Active
-                </label>
-                <label className="filter-form__checkbox-container">
-                    <input
-                        type="checkbox"
-                        id="puppy"
-                        name="puppy"
-                        value="Puppy"
-                        onChange={() => {
-                            setCalm(!calm);
-                        }}
-                    ></input>
-                    <svg
-                        className={`checkbox ${calm ? "checkbox--active" : ""}`}
-                        // hides for screen readers:
-                        aria-hidden="true"
-                        viewBox="-2 0 19 9"
-                        fill="none"
-                    >
-                        <path
-                            d="M1 4.5L5 9L14 1"
-                            strokeWidth="2"
-                            stroke={calm ? "#fff" : "none"}
-                        />
-                    </svg>
-                    Calm
-                </label>
-                <button
-                    className="btn--filter button--outline"
-                    onClick={filterUsers}
-                >
-                    Filter
-                </button>
-            </div>
+            <form className="filter-form" onSubmit={(e) => filterUsers(e)}>
+                <fieldset>
+                    <legend>Age:</legend>
+                    <label className="filter-form__checkbox-container">
+                        <input
+                            type="checkbox"
+                            id="puppy"
+                            name="puppy"
+                            value="Puppy"
+                            onChange={() => {
+                                setPuppy(!puppy);
+                            }}
+                        ></input>
+                        <svg
+                            className={`checkbox ${
+                                puppy ? "checkbox--active" : ""
+                            }`}
+                            // hides for screen readers:
+                            aria-hidden="true"
+                            viewBox="-2 0 19 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 4.5L5 9L14 1"
+                                strokeWidth="2"
+                                stroke={puppy ? "#fff" : "none"}
+                            />
+                        </svg>
+                        Puppy
+                    </label>
+                    <label className="filter-form__checkbox-container">
+                        <input
+                            type="checkbox"
+                            id="puppy"
+                            name="puppy"
+                            value="Puppy"
+                            onChange={() => {
+                                setMature(!mature);
+                            }}
+                        ></input>
+                        <svg
+                            className={`checkbox ${
+                                mature ? "checkbox--active" : ""
+                            }`}
+                            // hides for screen readers:
+                            aria-hidden="true"
+                            viewBox="-2 0 19 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 4.5L5 9L14 1"
+                                strokeWidth="2"
+                                stroke={mature ? "#fff" : "none"}
+                            />
+                        </svg>
+                        Mature
+                    </label>
+                    <label className="filter-form__checkbox-container">
+                        <input
+                            type="checkbox"
+                            id="puppy"
+                            name="puppy"
+                            value="Puppy"
+                            onChange={() => {
+                                setSenior(!senior);
+                            }}
+                        ></input>
+                        <svg
+                            className={`checkbox ${
+                                senior ? "checkbox--active" : ""
+                            }`}
+                            // hides for screen readers:
+                            aria-hidden="true"
+                            viewBox="-2 0 19 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 4.5L5 9L14 1"
+                                strokeWidth="2"
+                                stroke={senior ? "#fff" : "none"}
+                            />
+                        </svg>
+                        Senior
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Character:</legend>
+                    <label className="filter-form__checkbox-container">
+                        <input
+                            type="checkbox"
+                            id="puppy"
+                            name="puppy"
+                            value="Puppy"
+                            onChange={() => {
+                                setActive(!active);
+                            }}
+                        ></input>
+                        <svg
+                            className={`checkbox ${
+                                active ? "checkbox--active" : ""
+                            }`}
+                            // hides for screen readers:
+                            aria-hidden="true"
+                            viewBox="-2 0 19 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 4.5L5 9L14 1"
+                                strokeWidth="2"
+                                stroke={active ? "#fff" : "none"}
+                            />
+                        </svg>
+                        Active
+                    </label>
+                    <label className="filter-form__checkbox-container">
+                        <input
+                            type="checkbox"
+                            id="puppy"
+                            name="puppy"
+                            value="Puppy"
+                            onChange={() => {
+                                setCalm(!calm);
+                            }}
+                        ></input>
+                        <svg
+                            className={`checkbox ${
+                                calm ? "checkbox--active" : ""
+                            }`}
+                            // hides for screen readers:
+                            aria-hidden="true"
+                            viewBox="-2 0 19 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 4.5L5 9L14 1"
+                                strokeWidth="2"
+                                stroke={calm ? "#fff" : "none"}
+                            />
+                        </svg>
+                        Calm
+                    </label>
+                </fieldset>
+                <button className="btn--filter button--outline">Filter</button>
+            </form>
         </>
     );
 };

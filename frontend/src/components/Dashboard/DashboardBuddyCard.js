@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./DashboardBuddyCard.scss";
 import GoOnAWalkModal from "./GoOnAWalkModal";
 
 const DashboardBuddyCard = ({ user }) => {
-    const [buddies, setBuddies] = useState(null);
+    const [buddies, setBuddies] = useState([]);
     const [showGoOnAWalkModal, setShowGoOnAWalkModal] = useState(false);
     const [buddyToGoOnAWalk, setBuddyToGoOnAWalk] = useState("");
 
@@ -37,6 +39,7 @@ const DashboardBuddyCard = ({ user }) => {
                         <div className="db-buddy-card" key={buddy.user_id}>
                             <img
                                 className="db-buddy-card__img"
+                                alt={buddy.name}
                                 src={buddy.picture}
                             />
                             <h2 className="db-buddy-card__heading">
@@ -57,6 +60,12 @@ const DashboardBuddyCard = ({ user }) => {
                         </div>
                     );
                 })}
+            {buddies.length === 0 && (
+                <div className="db-buddy-card__no-buddies">
+                    <p>You do not have any buddies yet. Go ahead and <Link to="/findbuddies">find your first buddy!</Link></p>
+                    
+                </div>
+            )}
             {showGoOnAWalkModal && (
                 <GoOnAWalkModal
                     setShowGoOnAWalkModal={setShowGoOnAWalkModal}

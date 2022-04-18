@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const LoginModal = ({ setShowModal }) => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-    const [errors, setError] = useState(null);
+    const [errors, setError] = useState([]);
     const [cookies, setCookie, removeCookie] = useCookies(["user"]);
     const navigate = useNavigate();
 
@@ -46,6 +46,9 @@ const LoginModal = ({ setShowModal }) => {
             }
         } catch (error) {
             console.log(error);
+            setError((errors) => {
+                errors.push(error);
+            });
         }
     };
 

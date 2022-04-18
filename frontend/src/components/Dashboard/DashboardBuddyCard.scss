@@ -14,6 +14,21 @@
         width: 300px;
     }
 
+    &__no-buddies {
+        font-size: 1.2rem;
+        a {
+            color: shared.$primary;
+
+            &:hover {
+                color: shared.$primary-bright;
+            }
+        }
+
+        p {
+            margin: 0.5em;
+        }
+    }
+
     &__img {
         display: block;
         width: 100%;
