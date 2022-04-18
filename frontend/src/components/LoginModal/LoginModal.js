@@ -48,7 +48,7 @@ const LoginModal = ({ setShowModal }) => {
             navigate("/dashboard");
         } catch (error) {
             console.log(error);
-            setError("Incorrect email or password");
+            setError("Error making request");
         }
     };
 
