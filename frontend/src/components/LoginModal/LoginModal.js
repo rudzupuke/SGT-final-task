@@ -32,17 +32,18 @@ const LoginModal = ({ setShowModal }) => {
                 password,
             });
 
+            const success = response.status === 201;
+            // display an error message if the request is not successful
+            if (!success) {
+                setError("Incorrect email or password");
+                return;
+            }
+
             setCookie("Email", response.data.email);
             setCookie("UserId", response.data.userId);
             setCookie("AuthToken", response.data.token);
             setCookie("UserName", response.data.name);
 
-            const success = response.status === 201;
-
-            if (!success) {
-                setError("Incorrect email or password");
-                return;
-            }
             // reenables scrolling that was disabled upon openng the modal
             document.body.style.overflow = "unset";
             navigate("/dashboard");
