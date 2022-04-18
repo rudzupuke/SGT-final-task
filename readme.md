@@ -19,7 +19,7 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer. Use *
 
 1. Clone this repo to your local machine.
 
-2. To run the Create React App development server, open the terminal and run `cd frontend` followed by `npm install` in that folder on your local machine. Once the dependencies are done installing, execute `npm start` and the app will run on ( http://localhost:3000 ).
+2. To run the Create React App development server, open the terminal and run `cd frontend` followed by `npm install` in that folder on your local machine. Once the dependencies are done installing, execute `npm start` and the app will run on http://localhost:3000.
 
 3. Create an account with [MongoSB](https://www.mongodb.com/) and set up the database. There should be two collection - one for users, the other for chat. The user object should contain the following keys: \_id, user_id, email, hashed_password, breed, picture, age, character, bio, buddies.
 
@@ -28,14 +28,12 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer. Use *
     MONGO_DB_USERNAME = ********
     MONGO_DB_PASSWORD = *********************
     ```
-5. `cd backend` from the root of the project and run `npm install` followed by `npm run start:backend`. The server runs on ( http://localhost:8000 ).
-
+5. `cd backend` from the root of the project and run `npm install` followed by `npm run start:backend`. The server runs on http://localhost:8000.
 
 ## Production mode
 
-Coming soon 
+Coming soon
 
+## Known issues and functionality that is to be added
 
-## Known issues and functionality that is to be added 
-
-This is still work in progress, therefore the chat functionality has not been added yet. 
+This is still work in progress, therefore the chat functionality has not been added yet.
