@@ -80,6 +80,9 @@ router.post("/login", async (req, res) => {
 
         //find user based on email:
         const user = await users.findOne({ email });
+        if(!user){
+            return res.status(400).send({ error: 'User email does not expist' });
+        }
 
         const correctPassword = await bcrypt.compare(
             password,

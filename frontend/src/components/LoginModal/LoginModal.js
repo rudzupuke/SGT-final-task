@@ -47,7 +47,7 @@ const LoginModal = ({ setShowModal }) => {
             document.body.style.overflow = "unset";
             navigate("/dashboard");
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
             setError("Incorrect email or password");
         }
     };
