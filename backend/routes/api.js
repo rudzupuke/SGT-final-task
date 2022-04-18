@@ -66,7 +66,7 @@ router.post("/signup", async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        return res.status(400).send({ error: 'Could not create an account' });
+        return res.status(400).send({ error: "Could not create an account" });
     }
 });
 
@@ -80,8 +80,8 @@ router.post("/login", async (req, res) => {
 
         //find user based on email:
         const user = await users.findOne({ email });
-        if(!user){
-            return res.status(400).send({ error: 'User email does not expist' });
+        if (!user) {
+            return res.status(400).send({ error: "Invalid Credentials" });
         }
 
         const correctPassword = await bcrypt.compare(
@@ -99,7 +99,7 @@ router.post("/login", async (req, res) => {
                 name: user.name,
             });
         } else {
-            res.status(400).send({error: "Invalid Credentials"});
+            res.status(400).send({ error: "Invalid Credentials" });
         }
     } catch (err) {
         console.log(err);
@@ -117,6 +117,8 @@ router.get("/user", async (req, res) => {
         const query = { user_id: userId };
         const user = await users.findOne(query);
         res.send(user);
+    } catch (error) {
+        return res.status(500).send({ error: "Internal server error" });
     } finally {
         await client.close();
     }
@@ -155,6 +157,8 @@ router.get("/users", async (req, res) => {
         });
 
         res.send(filteredUsers);
+    } catch (error) {
+        return res.status(500).send({ error: "Internal server error" });
     } finally {
         await client.close();
     }
@@ -192,7 +196,7 @@ router.post("/addbuddy", async (req, res) => {
         res.send({ userOne, userTwo });
     } catch (error) {
         console.log(error);
-        res.status(400).send({ error: 'Could not process your request' });
+        res.status(400).send({ error: "Could not process your request" });
     } finally {
         await client.close();
     }
