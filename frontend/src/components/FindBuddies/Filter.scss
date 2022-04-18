@@ -57,11 +57,17 @@
         align-items: center;
         gap: 1em;
         flex-wrap: wrap;
+        padding: 1em 2em;
 
         fieldset {
             flex-direction: row;
             align-self: flex-start;
+            flex-wrap: wrap;
         }
+    }
+
+    @media (max-width: shared.$layout-breakpoint-small) {
+        padding: 0;
     }
 }
 
