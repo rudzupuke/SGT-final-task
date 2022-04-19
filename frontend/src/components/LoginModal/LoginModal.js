@@ -48,8 +48,7 @@ const LoginModal = ({ setShowModal }) => {
             document.body.style.overflow = "unset";
             navigate("/dashboard");
         } catch (error) {
-            console.log(error);
-            setError("Error making request");
+            setError(error.response.data.error);
         }
     };
 

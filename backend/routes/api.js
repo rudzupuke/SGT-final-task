@@ -70,7 +70,7 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
     const { email, password } = req.body;
 
     try {
@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
         //find user based on email:
         const user = await users.findOne({ email });
         if (!user) {
-            return res.status(400).send({ error: "Invalid Credentials" });
+            return res.status(400).send({ error: "User does not exist" });
         }
 
         const correctPassword = await bcrypt.compare(
@@ -103,6 +103,8 @@ router.post("/login", async (req, res) => {
         }
     } catch (err) {
         console.log(err);
+    } finally {
+        await client.close();
     }
 });
 
