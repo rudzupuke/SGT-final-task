@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./Register.scss";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import LoginModal from "../../components/LoginModal/LoginModal";
 
 const Register = () => {
@@ -25,7 +24,7 @@ const Register = () => {
         bio: "",
         buddies: [],
     });
-    const [errors, setError] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,15 +39,15 @@ const Register = () => {
             console.log(formData);
             console.log(`server response: ${response}`);
 
+            const success = response.status === 201;
+           
+            if (success) navigate("/dashboard");
             setCookie("Email", response.data.email);
             setCookie("UserId", response.data.userId);
             setCookie("AuthToken", response.data.token);
-
-            const success = response.status === 201;
-
-            if (success) navigate("/dashboard");
         } catch (error) {
             console.log(error);
+            setError(error.message);
         }
     };
 
@@ -202,7 +201,7 @@ const Register = () => {
                         value={formData.bio}
                         onChange={handleChange}
                     ></textarea>
-                    {errors && <p className="error-message">{errors}</p>}
+                    {error && <p className="error-message">{error}</p>}
                     <button className="button--primary registration-form__btn">
                         Create account
                     </button>
