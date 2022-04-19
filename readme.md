@@ -1,4 +1,4 @@
-# Dinder - App for Finding Your Dog a Playdate
+# K9pals - App for Finding Your Dog a Playdate
 
 Dinder is an online app that will help dogowners find the perfect buddy for they pets' playdates.
 
