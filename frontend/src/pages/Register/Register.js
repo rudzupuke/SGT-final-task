@@ -41,12 +41,14 @@ const Register = () => {
 
             const success = response.status === 201;
 
-            if (success) navigate("/dashboard");
-            setCookie("Email", response.data.email);
-            setCookie("UserId", response.data.userId);
-            setCookie("AuthToken", response.data.token);
+            if (success) {
+                setCookie("Email", response.data.email);
+                setCookie("UserId", response.data.userId);
+                setCookie("AuthToken", response.data.token);
+                navigate("/dashboard");
+            }
         } catch (error) {
-            setError(error.response.data);
+            setError(error.response.data.message);
         }
     };
 
