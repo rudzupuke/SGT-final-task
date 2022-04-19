@@ -1,6 +1,6 @@
 # K9pals - App for Finding Your Dog a Playdate
 
-Dinder is an online app that will help dogowners find the perfect buddy for they pets' playdates.
+K9pals is an online app that will help dogowners find the perfect buddy for they pets' playdates.
 
 This project is built using Create React App and demonstrates the following web development skills:
 
