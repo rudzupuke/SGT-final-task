@@ -15,7 +15,7 @@ const Footer = () => {
                         className="footer__container-logo-img"
                     />
                     <p className="footer__container-logo-text">
-                        Dinder is an online app that'll help you find your dog
+                        K9pals is an online app that'll help you find your dog
                         the perfect buddy to go on play dates with!{" "}
                         {!authToken && "Register your dog now!"}
                     </p>

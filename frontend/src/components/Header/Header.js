@@ -35,7 +35,7 @@ const Header = ({ authToken, setShowModal, showModal, user, isOnHomePage }) => {
             <div className="logo">
                 <Link to="/">
                     <img src={logo} className="logo__img" alt="logo"></img>
-                    <span className="logo__text">Dinder</span>
+                    <span className="logo__text">K9pals</span>
                 </Link>
             </div>
             <button
