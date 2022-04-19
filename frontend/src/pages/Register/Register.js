@@ -40,14 +40,13 @@ const Register = () => {
             console.log(`server response: ${response}`);
 
             const success = response.status === 201;
-           
+
             if (success) navigate("/dashboard");
             setCookie("Email", response.data.email);
             setCookie("UserId", response.data.userId);
             setCookie("AuthToken", response.data.token);
         } catch (error) {
-            console.log(error);
-            setError(error.message);
+            setError(error.response.data);
         }
     };
 
