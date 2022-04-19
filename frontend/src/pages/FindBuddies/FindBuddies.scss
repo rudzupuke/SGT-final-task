@@ -1,56 +1,88 @@
 @use "../../App.scss" as shared;
 
-.findbuddies-container {
-    display: flex;
-    column-gap: 30px;
-    max-width: 1200px;
+.main-container {
+    margin: 5px;
+}
+
+.findbuddies {
     margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+    max-width: 1000px;
     padding: 25px 15px 50px 15px;
-    color: shared.$dark-text;
+    gap: 20px;
+    // color: shared.$dark-text;
 
-    @media (max-width: shared.$layout-breakpoint-medium) {
-        flex-direction: column-reverse;
-    }
-}
+    // @media (max-width: shared.$layout-breakpoint-medium) {
+    //     flex-direction: column-reverse;
+    // }
 
-.all-dogs-container {
-    width: 80%;
+    
 
-    &__heading {
-        margin: 2.5rem 0;
-        text-align: center;
-    }
-
-    &__dogs {
+    &__dogs-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        justify-content: center;
-        // max-width: 910px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 25px;
-        column-gap: 35px;
+        //grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        justify-items: center;
+        gap: 20px;
     }
-
-    @media (max-width: shared.$layout-breakpoint-medium) {
-        width: 100%;
-    }
-}
-
-.filter-container {
-    margin-top: 2em;
-    padding: 1em;
-    width: 20%;
-    background-color: shared.$background-color;
 
     &__heading {
+        margin-top: 2em;
         text-align: center;
-        margin: 1rem 0;
     }
 
     @media (max-width: shared.$layout-breakpoint-medium) {
-        width: calc(100% - 2em);
-        place-items: center;
+        grid-template-columns: 1fr;
+
+        &__heading {
+            margin: 1.2em 0.4em 0.3em;
+        }
+    }
+
+    .filter-container {
+        padding: 2em 3em 2em 2em;
+        background-color: shared.$background-color;
+
+        &__heading {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: shared.$layout-breakpoint-medium) {
+            place-items: center;
+            padding: 1em;
+            grid-row: 1;
+
+            &__heading {
+                margin: 0.5em 0 0;
+            }
+        }
     }
 }
+
+// .all-dogs-container {
+//     width: 80%;
+
+//     &__heading {
+//         margin: 2.5rem 0;
+//         text-align: center;
+//     }
+
+//     &__dogs {
+//         // display: grid;
+//         // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+//         justify-content: center;
+//         // max-width: 910px;
+//         margin: 0 auto;
+//         display: flex;
+//         flex-wrap: wrap;
+//         row-gap: 25px;
+//         column-gap: 35px;
+//     }
+
+//     @media (max-width: shared.$layout-breakpoint-medium) {
+//         width: 100%;
+//     }
+// }
