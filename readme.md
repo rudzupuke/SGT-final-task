@@ -32,7 +32,7 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer. Use *
 
 ## Production mode
 
-Coming soon
+Use `npm run build` inside the frontend folder to build the app for production.
 
 ## Known issues and functionality that is to be added
 
