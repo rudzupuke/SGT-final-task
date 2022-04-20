@@ -1,12 +1,16 @@
-const PORT = 8000;
 const express = require("express");
-const routes = require("./routes/api");
-const cors = require("cors");
+const routes = require("./src/routes/routes");
+
 const app = express();
+const cors = require("cors");
 
 app.use(cors());
 
 app.use(require("body-parser").json());
+
 app.use("/", routes);
 
-app.listen(PORT, () => console.log("Server running on PORT " + PORT));
+const PORT = 8000;
+app.listen(PORT, () =>
+    console.log(" 🐶 Server running on " + `http://localhost:${PORT}`)
+);

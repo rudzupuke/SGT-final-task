@@ -11,6 +11,7 @@ const DashboardBuddyCard = ({ user }) => {
     const [buddyToGoOnAWalk, setBuddyToGoOnAWalk] = useState("");
 
     const buddieIds = user.buddies.map(({ user_id }) => user_id);
+
     const getBuddies = async () => {
         try {
             const response = await axios.get("http://localhost:8000/buddies", {
@@ -62,8 +63,10 @@ const DashboardBuddyCard = ({ user }) => {
                 })}
             {buddies.length === 0 && (
                 <div className="db-buddy-card__no-buddies">
-                    <p>You do not have any buddies yet. Go ahead and <Link to="/findbuddies">find your first buddy!</Link></p>
-                    
+                    <p>
+                        You do not have any buddies yet. Go ahead and{" "}
+                        <Link to="/findbuddies">find your first buddy!</Link>
+                    </p>
                 </div>
             )}
             {showGoOnAWalkModal && (
