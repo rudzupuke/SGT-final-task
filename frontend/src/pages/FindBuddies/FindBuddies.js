@@ -38,13 +38,12 @@ const FindBuddies = ({ user }) => {
             <Header user={user} authToken={authToken} />
             {isLoading && <Loader />}
             {!isLoading && (
-            <div className="findbuddies-container">
-                <div className="all-dogs-container">
-                    <h1 className="all-dogs-container__heading">
-                        Find your dog a buddy
-                    </h1>
-                    <div className="all-dogs-container__center">
-                        <div className="all-dogs-container__dogs">
+                <main className="main-container">
+                    <h1 className="findbuddies__heading">
+                            Find your dog a buddy
+                        </h1>
+                    <div className="findbuddies">
+                        <div className="findbuddies__dogs-grid">
                             {users.length > 0 &&
                                 users.map((user) => {
                                     return (
@@ -61,19 +60,20 @@ const FindBuddies = ({ user }) => {
                                     );
                                 })}
                         </div>
+                        <div className="filter-container">
+                            <h3 className="filter-container__heading">
+                                Filter by:
+                            </h3>
+                            <Filter
+                                users={users}
+                                usersForFiltering={usersForFiltering}
+                                setUsers={setUsers}
+                                setIsLoading={setIsLoading}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="filter-container">
-                    <h3 className="filter-container__heading">Filter by:</h3>
-                    <Filter
-                        users={users}
-                        usersForFiltering={usersForFiltering}
-                        setUsers={setUsers}
-                        setIsLoading={setIsLoading}
-                    />
-                </div>
-            </div>  )}
-           
+                </main>
+            )}
         </>
     );
 };
